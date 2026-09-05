@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTASection from "../components/CTASection.astro";
+import { withBase } from "../lib/url";
+
+// Copy sourced from the archived brief's SupportNet draft
+// (archive/planning/specs/supportnet-overview-web-copy.md), written by Andre.
+// Flagged there and still open: the "24x7 Monitoring" claim should get an
+// explicit confirm from Andre before this goes live — same category as the
+// "24/7 Support" claim corrected on the old site (PRD content guardrail, §10).
+
+const stack = [
+  { name: "SupportNet 365 User", blurb: "Identity, email and user security" },
+  { name: "SupportNet 365 Endpoint", blurb: "Managed endpoint protection and compliance" },
+  { name: "SupportNet 365 Endpoint Elite", blurb: "Advanced threat detection and response" },
+  { name: "SupportNet Governance", blurb: "Microsoft 365 governance and compliance" },
+  { name: "SupportNet Exposure Management", blurb: "Vulnerability detection and risk reduction" },
+  { name: "SupportNet Zero Trust", blurb: "Application control and ransomware prevention" },
+];
+
+const outcomes = [
+  { name: "Prevent", blurb: "Stop threats before they impact your business." },
+  { name: "Detect", blurb: "Identify suspicious activity quickly." },
+  { name: "Respond", blurb: "Contain and remediate threats rapidly." },
+  { name: "Recover", blurb: "Restore operations and strengthen security posture." },
+];
+
+const badges = ["24x7 Monitoring", "Governance", "Exposure Management", "Zero Trust", "Strategic Security Guidance"];
+---
+<BaseLayout
+  title="SupportNet Security"
+  description="SupportNet is Net Intellect's integrated security platform — identity protection, endpoint security, vulnerability management, governance and Zero Trust controls in one managed service."
+>
+  <nav class="container" style="padding:14px 24px;font-size:12px;color:var(--color-text-muted);">
+    <a href={withBase("/")}>Home</a> / <a href={withBase("/services")}>Services</a> /
+    <a href={withBase("/services/cybersecurity-compliance")}>Cybersecurity &amp; Compliance</a> /
+    <strong style="color:var(--color-charcoal);">SupportNet</strong>
+  </nav>
+
+  <section class="section section-dark">
+    <div class="container">
+      <span class="tag">Cybersecurity &amp; Compliance · SupportNet</span>
+      <h1 style="margin:14px 0;max-width:640px;">Enterprise Security Without Enterprise Complexity</h1>
+      <p class="muted" style="max-width:600px;">
+        SupportNet is Net Intellect's integrated security platform, combining identity protection,
+        endpoint security, vulnerability management, governance and Zero Trust controls into a
+        single managed service. Protect your people, devices and data across Microsoft 365, Azure,
+        cloud applications and on-premises infrastructure with a layered approach designed to
+        prevent, detect, respond and recover from modern cyber threats.
+      </p>
+      <p style="font-weight:700;letter-spacing:.02em;">Secure. Managed. Trusted.</p>
+      <a class="btn" href={withBase("/contact#audit")}>Book Your Cybersecurity Audit</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:70ch;">
+      <h2 style="font-size:20px;">SupportNet Security</h2>
+      <p class="muted">
+        Modern businesses face threats from every direction. SupportNet combines identity
+        protection, endpoint security, governance, vulnerability management and Zero Trust
+        controls into a single managed security platform designed to protect your people, devices
+        and data.
+      </p>
+      <p class="muted">
+        Built and managed by Net Intellect, SupportNet delivers layered security across Microsoft
+        365, Azure, endpoints, servers, business applications and cloud services. By combining
+        multiple security technologies into one integrated service, we help organisations reduce
+        risk, improve visibility and respond to threats faster — whether your environment is
+        cloud-first, hybrid or on-premises.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-sunken">
+    <div class="container">
+      <h2 style="font-size:20px;text-align:center;">The SupportNet Security Stack</h2>
+      <div class="grid grid-3" style="margin-top:20px;">
+        {stack.map((item) => (
+          <div class="card">
+            <h3 style="font-size:14.5px;">{item.name}</h3>
+            <p class="muted" style="margin:0;font-size:13.5px;">{item.blurb}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 style="font-size:20px;text-align:center;">Outcomes Delivered</h2>
+      <div class="grid grid-4" style="margin-top:20px;">
+        {outcomes.map((item) => (
+          <div class="card" style="text-align:center;">
+            <h3 style="font-size:15px;color:var(--color-accent-ink);">{item.name}</h3>
+            <p class="muted" style="margin:0;font-size:13.5px;">{item.blurb}</p>
+          </div>
+        ))}
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
+        {badges.map((b) => <span class="tag" style="background:var(--color-charcoal);">{b}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sunken" style="text-align:center;">
+    <div class="container">
+      <p class="muted" style="margin:0;">
+        SupportNet is the platform behind our
+        {" "}<a href={withBase("/services/cybersecurity-compliance")}>Cybersecurity &amp; Compliance</a>{" "}
+        service.
+      </p>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

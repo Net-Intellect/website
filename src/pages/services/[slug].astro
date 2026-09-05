@@ -76,5 +76,21 @@ const { Content } = await render(service);
     </div>
   </section>
 
+  {data.relatedPage && (
+    <section class="section section-sunken">
+      <div class="container">
+        <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;">
+          <div style="max-width:60ch;">
+            <div style="font-weight:700;font-size:15px;margin-bottom:6px;">{data.relatedPage.title}</div>
+            <p class="muted" style="margin:0;font-size:14px;">{data.relatedPage.blurb}</p>
+          </div>
+          <a class="btn" href={withBase(data.relatedPage.href)} style="white-space:nowrap;">
+            See the {data.relatedPage.title} stack →
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
   <CTASection />
 </BaseLayout>
