@@ -18,6 +18,7 @@ included:
   - Essential Eight alignment roadmap
 proofPointClient: Westmont Aged Care
 proofPointQuote: "[Testimonial quote to be confirmed — 10+ year client, 24/7 operation]"
+heroImage: /images/hero/cybersecurity.jpg
 relatedPage:
   title: SupportNet Security
   href: /supportnet

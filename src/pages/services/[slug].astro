@@ -23,11 +23,14 @@ const { Content } = await render(service);
   </nav>
 
   <section class="section section-dark">
-    <div class="container">
-      <span class="tag">Service</span>
-      <h1 style="margin:14px 0;">{data.name}</h1>
-      <p class="muted" style="max-width:560px;">{data.summary}</p>
-      <a class="btn" href={withBase("/contact#audit")}>Book Your Cybersecurity Audit</a>
+    <div class:list={["container", "hero-inner", { "no-image": !data.heroImage }]}>
+      <div>
+        <span class="tag">Service</span>
+        <h1 style="margin:14px 0;">{data.name}</h1>
+        <p class="muted" style="max-width:560px;">{data.summary}</p>
+        <a class="btn" href={withBase("/contact#audit")}>Book Your Cybersecurity Audit</a>
+      </div>
+      {data.heroImage && <img src={withBase(data.heroImage)} alt="" />}
     </div>
   </section>
 

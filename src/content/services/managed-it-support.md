@@ -17,6 +17,7 @@ included:
   - Regular strategic IT review
 proofPointClient: RivMed
 proofPointQuote: "[Testimonial quote to be confirmed — brief notes RivMed specifically praised ticket process and response times]"
+heroImage: /images/hero/it-support.jpg
 ---
 
 Managed IT Support replaces the old "IT Solutions" hub's five thin links with a real, outcome-focused service page. [Exact service inclusions and SLAs to be confirmed by Andre before this copy is finalised — PRD §12.]

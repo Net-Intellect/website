@@ -1,0 +1,255 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 1040" font-family="Calibri, 'Segoe UI', Arial, sans-serif" data-theme="dark">
+
+<style>
+  svg { width:100%; height:auto; }
+  :root, svg { --bg:#0a1830; --title:#ffffff; --subtitle:#4fc3f7; --supportline:#c9d6e6;
+    --ring-outer-fill:#3a2a6b; --ring-middle-fill:#12563f; --ring-inner-fill:#123e7a;
+    --ring-outer-label:#e5def7; --ring-mid-label:#d9f2e6; --ring-inner-label:#dceaff;
+    --ring-outer-desc:#c9bce8; --ring-mid-desc:#bfe5d2; --ring-inner-desc:#bcd7f5;
+    --icon-color:#ffffff; --item-text:#eef3fa;
+    --center-fill:#f3f6fb; --center-text:#173b6b; --center-icon:#1c4f8c;
+    --panel-gov-stroke:#e0a53c; --panel-gov-fill:#1c1608; --panel-gov-title:#f5c862; --panel-text:#f0ead9;
+    --panel-exp-stroke:#2bb6c4; --panel-exp-fill:#06232a; --panel-exp-title:#5fd8e6; --panel-exp-text:#dff6f9;
+    --panel-zt-stroke:#6d7df0; --panel-zt-fill:#141230; --panel-zt-title:#9aa8ff; --panel-zt-text:#e6e8ff;
+    --node-icon:#bcd7f5; --node-text:#d9e6f5; --node-line:#3a6fa8;
+    --outcome-band-fill:#0d2036; --outcome-title:#ffffff; --outcome-text:#b9c9dc; --outcome-icon:#4fc3f7;
+    --footer-text:#c9d6e6; --divider:#284b73; --center-ring:#8fb3e0;
+  }
+  svg[data-theme="light"] { --bg:#ffffff; --title:#152a4a; --subtitle:#1d6fb8; --supportline:#48607e;
+    --ring-outer-fill:#efe7fb; --ring-middle-fill:#e6f5ee; --ring-inner-fill:#e8f0fc;
+    --ring-outer-label:#4a3178; --ring-mid-label:#1c6b4d; --ring-inner-label:#1c4c8c;
+    --ring-outer-desc:#6b5793; --ring-mid-desc:#3f8a68; --ring-inner-desc:#3f6ea8;
+    --icon-color:#28406b; --item-text:#233850;
+    --center-fill:#173b6b; --center-text:#ffffff; --center-icon:#ffffff;
+    --panel-gov-stroke:#d99a1f; --panel-gov-fill:#fdf6e6; --panel-gov-title:#8a5b06; --panel-text:#4a3c1e;
+    --panel-exp-stroke:#1fa6b4; --panel-exp-fill:#e9fafb; --panel-exp-title:#0d6b76; --panel-exp-text:#204248;
+    --panel-zt-stroke:#5b6bdc; --panel-zt-fill:#eef0ff; --panel-zt-title:#3b3fa8; --panel-zt-text:#2b2d5c;
+    --node-icon:#28406b; --node-text:#28405c; --node-line:#9db6d4;
+    --outcome-band-fill:#f3f7fb; --outcome-title:#152a4a; --outcome-text:#48607e; --outcome-icon:#1d6fb8;
+    --footer-text:#48607e; --divider:#c7d6e6; --center-ring:#28406b;
+  }
+  .bg { fill: var(--bg); }
+  .title { fill: var(--title); font-weight:700; }
+  .subtitle { fill: var(--subtitle); font-weight:600; }
+  .supportline { fill: var(--supportline); }
+  .ring-label { font-weight:700; }
+  .ring-desc { font-weight:400; }
+  .item-text { fill: var(--item-text); font-weight:600; }
+  .icon { color: var(--icon-color); fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .center-icon { color: var(--center-icon); fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+  .center-text { fill: var(--center-text); font-weight:700; }
+  .node-text { fill: var(--node-text); font-weight:600; }
+  .node-icon { color: var(--node-icon); fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .node-line { stroke: var(--node-line); stroke-width:1.5; stroke-dasharray:4 5; fill:none; }
+  .panel-text { font-weight:600; }
+  .outcome-title { fill: var(--outcome-title); font-weight:700; }
+  .outcome-text { fill: var(--outcome-text); }
+  .outcome-icon { color: var(--outcome-icon); fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .footer-text { fill: var(--footer-text); }
+  .divider { stroke: var(--divider); stroke-width:1.5; }
+  .toggle-btn { cursor:pointer; }
+  .toggle-btn rect { fill: none; stroke: var(--divider); stroke-width:1.5; }
+  .toggle-btn text { fill: var(--supportline); font-weight:600; }
+</style>
+
+<rect class="bg" x="0" y="0" width="2200" height="1040"/>
+<defs>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 L20 5.5 V11 C20 16 16.5 19.8 12 22 C7.5 19.8 4 16 4 11 V5.5 Z"/></symbol>
+<symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 2 L20 5.5 V11 C20 16 16.5 19.8 12 22 C7.5 19.8 4 16 4 11 V5.5 Z"/><path d="M8.5 12 L11 14.5 L16 9"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11 V7 a4 4 0 0 1 8 0 v4"/><circle cx="12" cy="16" r="1.6"/></symbol>
+<symbol id="i-gate" viewBox="0 0 24 24"><path d="M12 2 L20 5.5 V11 C20 16 16.5 19.8 12 22 C7.5 19.8 4 16 4 11 V5.5 Z"/><path d="M9 12 h6 M12 9 v6"/></symbol>
+<symbol id="i-envelope" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5 L12 13 L20.5 6.5"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9 L12 4 L22 9 L12 14 Z"/><path d="M6 11 v5 c0 1.6 2.7 3 6 3 s6 -1.4 6 -3 v-5"/></symbol>
+<symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6 v12 c0 1.7 3.6 3 8 3 s8 -1.3 8 -3 V6"/><path d="M4 12 c0 1.7 3.6 3 8 3 s8 -1.3 8 -3"/></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3 a4 4 0 1 0 -5.6 5.6 L4 17 l3 3 l5.1 -5.1 a4 4 0 0 0 2.6 -8.6 Z"/></symbol>
+<symbol id="i-device-lock" viewBox="0 0 24 24"><rect x="3" y="4" width="13" height="9" rx="1.3"/><path d="M2 16.5 h18"/><rect x="15" y="10" width="7" height="8" rx="1.3"/><path d="M16.7 10 V8 a2 2 0 0 1 4 0 v2"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.4"/><path d="M12 2.5 v2.4 M12 19.1 v2.4 M21.5 12 h-2.4 M4.9 12 H2.5 M18.4 5.6 l-1.7 1.7 M7.3 16.7 l-1.7 1.7 M18.4 18.4 l-1.7 -1.7 M7.3 7.3 L5.6 5.6"/></symbol>
+<symbol id="i-clipboard-check" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="8.5" y="2" width="7" height="3.4" rx="1"/><path d="M8.5 12.5 L11 15 L16 9.5"/></symbol>
+<symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12 L18 6"/><circle cx="12" cy="12" r="1.3"/></symbol>
+<symbol id="i-magnifier" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 L21 21"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.8"/><circle cx="12" cy="12" r="1.2"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20 V4 M4 20 H21"/><path d="M7 16 v-4 M11.5 16 V8 M16 16 v-7 M20 16 v-2.5"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 L22 20 H2 Z"/><path d="M12 9.5 V14"/><circle cx="12" cy="17" r="0.9"/></symbol>
+<symbol id="i-network" viewBox="0 0 24 24"><circle cx="5" cy="6" r="2.3"/><circle cx="19" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M6.9 7.3 L10.2 16.3 M17.1 7.3 L13.8 16.3 M7.3 6 H16.7"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="1.5"/><path d="M8 8 h8 M8 12 h8 M8 16 h5"/></symbol>
+<symbol id="i-id-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><circle cx="8.5" cy="12" r="2.2"/><path d="M5.7 16.3 c0.5 -1.8 2 -2.6 2.8 -2.6 s2.3 0.8 2.8 2.6 M14 9.5 h5 M14 12.5 h5 M14 15.5 h3.5"/></symbol>
+<symbol id="i-priority" viewBox="0 0 24 24"><path d="M12 2 L22 20 H2 Z"/><path d="M12 8.5 L12 13.5 M9.5 16 L12 13.5 L14.5 16"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12 C5 6.5 9 4 12 4 s7 2.5 10 8 c-3 5.5 -7 8 -10 8 S5 17.5 2 12 Z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-check-square" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 12.5 L11 15.5 L16.5 9"/></symbol>
+<symbol id="i-fence" viewBox="0 0 24 24"><path d="M4 21 V6 M9 21 V6 M14 21 V6 M19 21 V6"/><path d="M2.5 9 H20.5 M2.5 14 H20.5"/></symbol>
+<symbol id="i-box-lock" viewBox="0 0 24 24"><rect x="3" y="9" width="12" height="11" rx="1.3"/><path d="M3 13.5 h12 M6.5 9 V6.5 a2.5 2.5 0 0 1 5 0 V9"/><rect x="15.5" y="12" width="7" height="7" rx="1.2"/><path d="M17 12 v-1.6 a1.9 1.9 0 0 1 3.8 0 V12"/></symbol>
+<symbol id="i-arrow-up-shield" viewBox="0 0 24 24"><path d="M12 2 L20 5.5 V11 C20 16 16.5 19.8 12 22 C7.5 19.8 4 16 4 11 V5.5 Z"/><path d="M12 15.5 V8.5 M9 11.3 L12 8.3 L15 11.3"/></symbol>
+<symbol id="i-shield-x" viewBox="0 0 24 24"><path d="M12 2 L20 5.5 V11 C20 16 16.5 19.8 12 22 C7.5 19.8 4 16 4 11 V5.5 Z"/><path d="M9.3 9.3 L14.7 14.7 M14.7 9.3 L9.3 14.7"/></symbol>
+<symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.5"/><path d="M4.5 21 c0 -4.5 3.4 -7 7.5 -7 s7.5 2.5 7.5 7"/></symbol>
+<symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 21 c0 -4 2.7 -6.2 6 -6.2 s6 2.2 6 6.2 M15.2 14.4 c2.7 0.2 4.8 2.1 4.8 6.6"/></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="4.5" width="16" height="10.5" rx="1.2"/><path d="M2 19 h20 l-1.6 -3.5 H3.6 Z"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M10.5 19 h3"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18 h10.5 a4 4 0 0 0 0.5 -8 a5.5 5.5 0 0 0 -10.7 -1.6 A4.2 4.2 0 0 0 7 18 Z"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="7" rx="1.3"/><rect x="3.5" y="13.5" width="17" height="7" rx="1.3"/><circle cx="7.2" cy="7" r="0.9"/><circle cx="7.2" cy="17" r="0.9"/></symbol>
+<symbol id="i-org-tree" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2"/><circle cx="5" cy="14" r="2"/><circle cx="12" cy="14" r="2"/><circle cx="19" cy="14" r="2"/><path d="M12 6.5 V10 M5 12 V10 H19 V12 M12 10 V12 M5 16 V21 M12 16 V21 M19 16 V21"/></symbol>
+<symbol id="i-apps-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></symbol>
+<symbol id="i-triangle" viewBox="0 0 24 24"><path d="M12 3 L21.5 20.5 H2.5 Z"/><path d="M12 9 L16.5 20.5 H9 Z"/></symbol>
+<symbol id="i-shield-restore" viewBox="0 0 24 24"><path d="M12 2 L20 5.5 V11 C20 16 16.5 19.8 12 22 C7.5 19.8 4 16 4 11 V5.5 Z"/><path d="M9 10.5 a3.3 3.3 0 1 1 0.4 3.6 M9 13.6 v-3 h3"/></symbol>
+<symbol id="i-respond-arrow" viewBox="0 0 24 24"><path d="M4 12 a8 8 0 1 1 3 6.2"/><path d="M4 12 V7 M4 12 H9"/></symbol>
+<symbol id="i-logo-mark" viewBox="0 0 24 24"><path d="M6 12 c0 -4 2.6 -6.5 6 -6.5 s6 2.5 6 6.5 c0 4 -2.6 6.5 -6 6.5"/><path d="M6 12 l-2 2 M18 12 l2 -2"/><circle cx="12" cy="12" r="1.6"/></symbol>
+</defs>
+<text x="1100" y="52" class="title" font-size="34" text-anchor="middle">SUPPORTNET SECURITY OPERATIONS SHIELD</text>
+<text x="1100" y="86" class="subtitle" font-size="21" text-anchor="middle">Multi-Layered Protection. Complete Peace of Mind.</text>
+<text x="1100" y="114" class="supportline" font-size="15" text-anchor="middle">We secure what matters so your business can focus on what it does best.</text>
+<ellipse cx="1100" cy="540" rx="430" ry="300" fill="var(--ring-outer-fill)" stroke="var(--divider)" stroke-width="1.5"/>
+<ellipse cx="1100" cy="540" rx="320" ry="222" fill="var(--ring-middle-fill)" stroke="var(--divider)" stroke-width="1.5"/>
+<ellipse cx="1100" cy="540" rx="205" ry="142" fill="var(--ring-inner-fill)" stroke="var(--divider)" stroke-width="1.5"/>
+<text x="1100" y="272" class="ring-label" font-size="19" text-anchor="middle" fill="var(--ring-outer-label)">SupportNet 365 Endpoint Elite</text>
+<text x="1100" y="296" class="ring-desc" font-size="13" text-anchor="middle" fill="var(--ring-outer-desc)">Advanced Threat Detection &amp; Response</text>
+<text x="1100" y="348" class="ring-label" font-size="19" text-anchor="middle" fill="var(--ring-mid-label)">SupportNet 365 Endpoint</text>
+<text x="1100" y="372" class="ring-desc" font-size="13" text-anchor="middle" fill="var(--ring-mid-desc)">Managed Endpoint Security</text>
+<text x="1100" y="422" class="ring-label" font-size="19" text-anchor="middle" fill="var(--ring-inner-label)">SupportNet 365 User</text>
+<text x="1100" y="446" class="ring-desc" font-size="13" text-anchor="middle" fill="var(--ring-inner-desc)">User Identity &amp; Productivity Protection</text>
+<use href="#i-radar" class="icon" x="739.887343923555" y="447.3665779228149" width="25" height="25"/>
+<text x="752.387343923555" y="480.8665779228149" class="item-text" font-size="11.5" text-anchor="middle">EDR</text>
+<use href="#i-magnifier" class="icon" x="755.6100883871787" y="635.1662283610606" width="25" height="25"/>
+<text x="768.1100883871787" y="668.6662283610606" class="item-text" font-size="11.5" text-anchor="middle">Threat Detection</text>
+<use href="#i-target" class="icon" x="952.2967088540948" y="764.2605752720252" width="25" height="25"/>
+<text x="964.7967088540948" y="797.7605752720252" class="item-text" font-size="11.5" text-anchor="middle">Threat Hunting</text>
+<use href="#i-chart" class="icon" x="1222.703291145905" y="764.2605752720253" width="25" height="25"/>
+<text x="1235.203291145905" y="797.7605752720253" class="item-text" font-size="11.5" text-anchor="middle">Behaviour Analytics</text>
+<use href="#i-alert" class="icon" x="1419.3899116128214" y="635.1662283610606" width="25" height="25"/>
+<text x="1431.8899116128214" y="668.6662283610606" class="item-text" font-size="11.5" text-anchor="middle">Incident Response</text>
+<use href="#i-network" class="icon" x="1435.112656076445" y="447.36657792281477" width="25" height="25"/>
+<text x="1447.612656076445" y="480.86657792281477" class="item-text" font-size="11.5" text-anchor="middle">Threat Intelligence</text>
+<use href="#i-shield-check" class="icon" x="834.217146382647" y="529.5431526747253" width="25" height="25"/>
+<text x="846.717146382647" y="563.0431526747253" class="item-text" font-size="11.5" text-anchor="middle">Next Gen Antivirus</text>
+<use href="#i-wrench" class="icon" x="905.2912285742196" y="649.4820098526" width="25" height="25"/>
+<text x="917.7912285742196" y="682.9820098526" class="item-text" font-size="11.5" text-anchor="middle">Patch Management</text>
+<use href="#i-device-lock" class="icon" x="1075.715138420311" y="702.909844751045" width="25" height="25"/>
+<text x="1088.215138420311" y="736.409844751045" class="item-text" font-size="11.5" text-anchor="middle">Device Control</text>
+<use href="#i-lock" class="icon" x="1252.5647760604747" y="660.6949852360613" width="25" height="25"/>
+<text x="1265.0647760604747" y="694.1949852360613" class="item-text" font-size="11.5" text-anchor="middle">Encryption</text>
+<use href="#i-gear" class="icon" x="1339.4123960967836" y="545.8551981497999" width="25" height="25"/>
+<text x="1351.9123960967836" y="579.3551981497999" class="item-text" font-size="11.5" text-anchor="middle">Application Management</text>
+<use href="#i-clipboard-check" class="icon" x="1288.904097752145" y="421.0071894039683" width="25" height="25"/>
+<text x="1301.404097752145" y="454.5071894039683" class="item-text" font-size="11.5" text-anchor="middle">Compliance Monitoring</text>
+<use href="#i-shield" class="icon" x="956.1751899733322" y="565.5298647932123" width="25" height="25"/>
+<text x="968.6751899733322" y="599.0298647932123" class="item-text" font-size="11.5" text-anchor="middle">Identity Protection</text>
+<use href="#i-lock" class="icon" x="1024.1864849063227" y="628.1837372332856" width="25" height="25"/>
+<text x="1036.6864849063227" y="661.6837372332856" class="item-text" font-size="11.5" text-anchor="middle">MFA</text>
+<use href="#i-gate" class="icon" x="1126.7196459577115" y="635.9395284039055" width="25" height="25"/>
+<text x="1139.2196459577115" y="669.4395284039055" class="item-text" font-size="11.5" text-anchor="middle">Conditional Access</text>
+<use href="#i-envelope" class="icon" x="1207.8681884966097" y="584.5683720979399" width="25" height="25"/>
+<text x="1220.3681884966097" y="618.0683720979399" class="item-text" font-size="11.5" text-anchor="middle">Email Security</text>
+<use href="#i-cap" class="icon" x="1223.385649234949" y="502.0805308591433" width="25" height="25"/>
+<text x="1235.885649234949" y="535.5805308591433" class="item-text" font-size="11.5" text-anchor="middle">Security Awareness</text>
+<use href="#i-database" class="icon" x="1164.8110905464757" y="433.4527242303826" width="25" height="25"/>
+<text x="1177.3110905464757" y="466.9527242303826" class="item-text" font-size="11.5" text-anchor="middle">Data Protection</text>
+<circle cx="1100" cy="540" r="92" fill="var(--center-fill)" stroke="var(--center-ring)" stroke-width="2"/>
+<use href="#i-people" class="center-icon" x="1055.0" y="487.0" width="30" height="30"/>
+<use href="#i-laptop" class="center-icon" x="1117.0" y="489.0" width="26" height="26"/>
+<use href="#i-phone" class="center-icon" x="1059.0" y="537.0" width="22" height="22"/>
+<use href="#i-database" class="center-icon" x="1117.0" y="537.0" width="26" height="26"/>
+<text x="1100" y="592" class="center-text" font-size="14" text-anchor="middle">PEOPLE</text>
+<text x="1100" y="608" class="center-text" font-size="14" text-anchor="middle">DEVICES</text>
+<text x="1100" y="624" class="center-text" font-size="14" text-anchor="middle">DATA</text>
+<line x1="130" y1="150.0" x2="1100.0" y2="150.0" class="node-line"/>
+<use href="#i-apps-grid" class="node-icon" x="116.0" y="136.0" width="28" height="28"/>
+<text x="130" y="184.0" class="node-text" font-size="13" text-anchor="middle">Microsoft 365</text>
+<line x1="130" y1="286.0" x2="871.1868399278087" y2="286.0" class="node-line"/>
+<use href="#i-triangle" class="node-icon" x="116.0" y="272.0" width="28" height="28"/>
+<text x="130" y="320.0" class="node-text" font-size="13" text-anchor="middle">Microsoft Azure</text>
+<line x1="130" y1="422.0" x2="704.6597471094608" y2="422.0" class="node-line"/>
+<use href="#i-cloud" class="node-icon" x="116.0" y="408.0" width="28" height="28"/>
+<text x="130" y="456.0" class="node-text" font-size="13" text-anchor="middle">SharePoint Online</text>
+<line x1="130" y1="558.0" x2="670.7746978567084" y2="558.0" class="node-line"/>
+<use href="#i-cloud" class="node-icon" x="116.0" y="544.0" width="28" height="28"/>
+<text x="130" y="592.0" class="node-text" font-size="13" text-anchor="middle">OneDrive for Business</text>
+<line x1="130" y1="694.0" x2="730.9785974288814" y2="694.0" class="node-line"/>
+<use href="#i-people" class="node-icon" x="116.0" y="680.0" width="28" height="28"/>
+<text x="130" y="728.0" class="node-text" font-size="13" text-anchor="middle">Microsoft Teams</text>
+<line x1="130" y1="830.0" x2="989.9035776138833" y2="830.0" class="node-line"/>
+<use href="#i-person" class="node-icon" x="116.0" y="816.0" width="28" height="28"/>
+<text x="130" y="864.0" class="node-text" font-size="13" text-anchor="middle">Remote Workers</text>
+<line x1="2070" y1="150.0" x2="1100.0" y2="150.0" class="node-line"/>
+<use href="#i-server" class="node-icon" x="2056.0" y="136.0" width="28" height="28"/>
+<text x="2070" y="184.0" class="node-text" font-size="13" text-anchor="middle">On-Prem Servers</text>
+<line x1="2070" y1="263.3333333333333" x2="1266.2639207946952" y2="263.3333333333333" class="node-line"/>
+<use href="#i-org-tree" class="node-icon" x="2056.0" y="249.33333333333331" width="28" height="28"/>
+<text x="2070" y="297.3333333333333" class="node-text" font-size="13" text-anchor="middle">Active Directory</text>
+<line x1="2070" y1="376.66666666666663" x2="1460.682668913161" y2="376.66666666666663" class="node-line"/>
+<use href="#i-server" class="node-icon" x="2056.0" y="362.66666666666663" width="28" height="28"/>
+<text x="2070" y="410.66666666666663" class="node-text" font-size="13" text-anchor="middle">File Servers / NAS</text>
+<line x1="2070" y1="490.0" x2="1523.9857177888057" y2="490.0" class="node-line"/>
+<use href="#i-database" class="node-icon" x="2056.0" y="476.0" width="28" height="28"/>
+<text x="2070" y="524.0" class="node-text" font-size="13" text-anchor="middle">Databases</text>
+<line x1="2070" y1="603.3333333333333" x2="1520.308690204864" y2="603.3333333333333" class="node-line"/>
+<use href="#i-apps-grid" class="node-icon" x="2056.0" y="589.3333333333333" width="28" height="28"/>
+<text x="2070" y="637.3333333333333" class="node-text" font-size="13" text-anchor="middle">Business Applications</text>
+<line x1="2070" y1="716.6666666666667" x2="1447.5320217948836" y2="716.6666666666667" class="node-line"/>
+<use href="#i-cloud" class="node-icon" x="2056.0" y="702.6666666666667" width="28" height="28"/>
+<text x="2070" y="750.6666666666667" class="node-text" font-size="13" text-anchor="middle">Third-Party SaaS Applications</text>
+<line x1="2070" y1="830.0" x2="1210.0964223861167" y2="830.0" class="node-line"/>
+<use href="#i-phone" class="node-icon" x="2056.0" y="816.0" width="28" height="28"/>
+<text x="2070" y="864.0" class="node-text" font-size="13" text-anchor="middle">Mobile Devices</text>
+<rect x="300" y="390.0" width="300" height="300" rx="14" fill="var(--panel-gov-fill)" stroke="var(--panel-gov-stroke)" stroke-width="2"/>
+<text x="450.0" y="424.0" class="panel-text" font-size="15.5" text-anchor="middle" fill="var(--panel-gov-title)">SupportNet Governance</text>
+<text x="450.0" y="446.0" font-size="12.5" text-anchor="middle" fill="var(--panel-text)">Microsoft 365 Security, Compliance</text>
+<text x="450.0" y="462.0" font-size="12.5" text-anchor="middle" fill="var(--panel-text)">&amp; Policy Enforcement</text>
+<use href="#i-doc" class="icon" x="322.0" y="480.0" width="24" height="24"/>
+<text x="356" y="497.0" font-size="13.5" text-anchor="start" fill="var(--panel-text)">Microsoft 365 Governance</text>
+<use href="#i-gear" class="icon" x="322.0" y="510.0" width="24" height="24"/>
+<text x="356" y="527.0" font-size="13.5" text-anchor="start" fill="var(--panel-text)">Policy Automation</text>
+<use href="#i-doc" class="icon" x="322.0" y="540.0" width="24" height="24"/>
+<text x="356" y="557.0" font-size="13.5" text-anchor="start" fill="var(--panel-text)">DLP Controls</text>
+<use href="#i-gear" class="icon" x="322.0" y="570.0" width="24" height="24"/>
+<text x="356" y="587.0" font-size="13.5" text-anchor="start" fill="var(--panel-text)">Secure Configuration</text>
+<use href="#i-id-card" class="icon" x="322.0" y="600.0" width="24" height="24"/>
+<text x="356" y="617.0" font-size="13.5" text-anchor="start" fill="var(--panel-text)">Identity Governance</text>
+<rect x="1600" y="225" width="300" height="300" rx="14" fill="var(--panel-exp-fill)" stroke="var(--panel-exp-stroke)" stroke-width="2"/>
+<text x="1750.0" y="259" class="panel-text" font-size="15.5" text-anchor="middle" fill="var(--panel-exp-title)">SupportNet Exposure Management</text>
+<text x="1750.0" y="281" font-size="12.5" text-anchor="middle" fill="var(--panel-exp-text)">Vulnerability Detection</text>
+<text x="1750.0" y="297" font-size="12.5" text-anchor="middle" fill="var(--panel-exp-text)">&amp; Risk Reduction</text>
+<use href="#i-magnifier" class="icon" x="1622.0" y="315.0" width="24" height="24"/>
+<text x="1656" y="332" font-size="13.5" text-anchor="start" fill="var(--panel-exp-text)">Vulnerability Scanning</text>
+<use href="#i-priority" class="icon" x="1622.0" y="345.0" width="24" height="24"/>
+<text x="1656" y="362" font-size="13.5" text-anchor="start" fill="var(--panel-exp-text)">Risk Prioritisation</text>
+<use href="#i-doc" class="icon" x="1622.0" y="375.0" width="24" height="24"/>
+<text x="1656" y="392" font-size="13.5" text-anchor="start" fill="var(--panel-exp-text)">Software Auditing</text>
+<use href="#i-doc" class="icon" x="1622.0" y="405.0" width="24" height="24"/>
+<text x="1656" y="422" font-size="13.5" text-anchor="start" fill="var(--panel-exp-text)">Configuration Reviews</text>
+<use href="#i-eye" class="icon" x="1622.0" y="435.0" width="24" height="24"/>
+<text x="1656" y="452" font-size="13.5" text-anchor="start" fill="var(--panel-exp-text)">Attack Surface Visibility</text>
+<rect x="1600" y="555" width="300" height="300" rx="14" fill="var(--panel-zt-fill)" stroke="var(--panel-zt-stroke)" stroke-width="2"/>
+<text x="1750.0" y="589" class="panel-text" font-size="15.5" text-anchor="middle" fill="var(--panel-zt-title)">SupportNet Zero Trust</text>
+<text x="1750.0" y="611" font-size="12.5" text-anchor="middle" fill="var(--panel-zt-text)">Application Control</text>
+<text x="1750.0" y="627" font-size="12.5" text-anchor="middle" fill="var(--panel-zt-text)">&amp; Zero Trust Security</text>
+<use href="#i-check-square" class="icon" x="1622.0" y="645.0" width="24" height="24"/>
+<text x="1656" y="662" font-size="13.5" text-anchor="start" fill="var(--panel-zt-text)">Application Whitelisting</text>
+<use href="#i-fence" class="icon" x="1622.0" y="675.0" width="24" height="24"/>
+<text x="1656" y="692" font-size="13.5" text-anchor="start" fill="var(--panel-zt-text)">Ringfencing</text>
+<use href="#i-box-lock" class="icon" x="1622.0" y="705.0" width="24" height="24"/>
+<text x="1656" y="722" font-size="13.5" text-anchor="start" fill="var(--panel-zt-text)">Storage Control</text>
+<use href="#i-arrow-up-shield" class="icon" x="1622.0" y="735.0" width="24" height="24"/>
+<text x="1656" y="752" font-size="13.5" text-anchor="start" fill="var(--panel-zt-text)">Elevation Control</text>
+<use href="#i-shield-x" class="icon" x="1622.0" y="765.0" width="24" height="24"/>
+<text x="1656" y="782" font-size="13.5" text-anchor="start" fill="var(--panel-zt-text)">Ransomware Protection</text>
+<rect x="30" y="900" width="2140" height="70" rx="12" fill="var(--outcome-band-fill)" stroke="var(--divider)" stroke-width="1.5"/>
+<use href="#i-shield-check" class="outcome-icon" x="50.0" y="918.0" width="30" height="30"/>
+<text x="91" y="926" class="outcome-title" font-size="16" text-anchor="start">Prevent</text>
+<text x="91" y="945" class="outcome-text" font-size="12" text-anchor="start">Stop threats before they happen</text>
+<use href="#i-magnifier" class="outcome-icon" x="480.0" y="918.0" width="30" height="30"/>
+<text x="521" y="926" class="outcome-title" font-size="16" text-anchor="start">Detect</text>
+<text x="521" y="945" class="outcome-text" font-size="12" text-anchor="start">Identify threats quickly</text>
+<use href="#i-respond-arrow" class="outcome-icon" x="910.0" y="918.0" width="30" height="30"/>
+<text x="951" y="926" class="outcome-title" font-size="16" text-anchor="start">Respond</text>
+<text x="951" y="945" class="outcome-text" font-size="12" text-anchor="start">Contain and respond with speed</text>
+<use href="#i-shield-restore" class="outcome-icon" x="1340.0" y="918.0" width="30" height="30"/>
+<text x="1381" y="926" class="outcome-title" font-size="16" text-anchor="start">Recover</text>
+<text x="1381" y="945" class="outcome-text" font-size="12" text-anchor="start">Restore and strengthen with confidence</text>
+<use href="#i-logo-mark" class="outcome-icon" x="1853.0" y="916.0" width="34" height="34"/>
+<text x="1900" y="929" class="outcome-title" font-size="19" text-anchor="start">SupportNet</text>
+<text x="1900" y="948" class="footer-text" font-size="12" text-anchor="start">Managed Security Services Built for Modern Businesses</text>
+
+<g class="toggle-btn" onclick="(function(e){var svg=e.currentTarget.closest('svg'); var t=svg.getAttribute('data-theme'); svg.setAttribute('data-theme', t==='dark'?'light':'dark');})(event)">
+  <rect x="2050" y="16" width="120" height="34" rx="17"/>
+  <text x="2110" y="38" font-size="13" text-anchor="middle">Toggle theme</text>
+</g>
+
+</svg>

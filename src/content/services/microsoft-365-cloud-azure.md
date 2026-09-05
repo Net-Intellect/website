@@ -17,6 +17,7 @@ included:
   - Ongoing cloud management and cost review
 proofPointClient: UPA Riverina Murray
 proofPointQuote: "[Testimonial quote to be confirmed — ~18 year client, multi-site]"
+heroImage: /images/hero/cloud-solutions.jpg
 ---
 
 Previously buried as a single stub page; this page gives Microsoft 365/Cloud/Azure its own real content, matching Net Intellect's Microsoft partner status.

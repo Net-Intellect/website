@@ -12,6 +12,7 @@ const services = defineCollection({
     included: z.array(z.string()),
     proofPointClient: z.string(),
     proofPointQuote: z.string(),
+    heroImage: z.string().optional(),
     relatedPage: z
       .object({
         title: z.string(),
