@@ -1,0 +1,97 @@
+/* Brand tokens carried over from the old site (PRD §9). Calibri is a
+   Microsoft-licensed face and can't ship as a web font as-is — this fallback
+   stack approximates it until that's resolved (PRD §12). */
+:root {
+  --color-accent: #0098d6;
+  --color-accent-ink: #00415c;
+  --color-charcoal: #2c393e;
+  --color-bg: #ffffff;
+  --color-bg-sunken: #f4f6f7;
+  --color-text: #2c393e;
+  --color-text-muted: #5c6870;
+  --color-border: #e1e5e8;
+  --font-sans: Calibri, "Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { color: var(--color-accent-ink); }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 24px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--color-accent-ink); color: #fff; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid currentColor;
+  color: #fff;
+}
+.btn-outline:hover { background: rgba(255,255,255,.1); color: #fff; }
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-accent);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+.section { padding: 56px 0; }
+.section-sunken { background: var(--color-bg-sunken); }
+.section-dark { background: var(--color-charcoal); color: #fff; }
+.section-accent { background: var(--color-accent); color: #fff; }
+
+h1, h2, h3 { color: var(--color-charcoal); line-height: 1.2; margin: 0 0 12px; }
+.section-dark h1, .section-dark h2, .section-dark h3 { color: #fff; }
+.muted { color: var(--color-text-muted); }
+.section-dark .muted { color: #c7d0d4; }
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 800px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 20px;
+  background: #fff;
+}

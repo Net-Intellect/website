@@ -1,0 +1,67 @@
+# Decap CMS config (PRD §6.2 — headless CMS on top of the static site, so
+# Andre can edit content without opening a pull request).
+#
+# SETUP STILL NEEDED before this works (not yet done — GitHub Pages has no
+# server side, so the GitHub-backend OAuth handshake needs a small external
+# OAuth provider app; see https://decapcms.org/docs/github-backend/):
+#   1. Register an OAuth App under the Net-Intellect GitHub org.
+#   2. Deploy (or point at an existing) OAuth provider that exchanges the
+#      GitHub code for a token — e.g. a small Cloudflare Worker, or Netlify's
+#      free OAuth-only usage even though the site itself isn't hosted there.
+#   3. Set `base_url` below to that provider's URL.
+# Until then, opening /admin/ will fail to authenticate — that's expected.
+
+backend:
+  name: github
+  repo: Net-Intellect/website
+  branch: main
+  # base_url: https://REPLACE-WITH-OAUTH-PROVIDER-URL
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: services
+    label: Services
+    folder: src/content/services
+    create: false
+    delete: false
+    identifier_field: name
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Order, name: order, widget: number }
+      - { label: Summary, name: summary, widget: string }
+      - { label: "Who This Is For", name: whoFor, widget: list }
+      - { label: Outcomes, name: outcomes, widget: list }
+      - { label: "What's Included", name: included, widget: list }
+      - { label: "Proof Point — Client", name: proofPointClient, widget: string, required: false }
+      - { label: "Proof Point — Quote", name: proofPointQuote, widget: text }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: testimonials
+    label: Testimonials
+    folder: src/content/testimonials
+    create: false
+    delete: false
+    identifier_field: client
+    fields:
+      - { label: Client, name: client, widget: string }
+      - label: Segment
+        name: segment
+        widget: select
+        options: ["Aged Care", "Community Health", "General Business"]
+      - { label: Tenure, name: tenure, widget: string }
+      - { label: Quote, name: quote, widget: text }
+      - { label: Outcome, name: outcome, widget: string }
+
+  - name: blog
+    label: Blog
+    folder: src/content/blog
+    create: true
+    delete: true
+    identifier_field: title
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: "Publish Date", name: pubDate, widget: datetime }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Body, name: body, widget: markdown }

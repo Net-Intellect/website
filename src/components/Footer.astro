@@ -1,0 +1,45 @@
+---
+import { withBase } from "../lib/url";
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container grid grid-4">
+    <div>
+      <h3 style="font-size:14px;">Services</h3>
+      <ul>
+        <li><a href={withBase("/services")}>All services</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-size:14px;">Company</h3>
+      <ul>
+        <li><a href={withBase("/about")}>About</a></li>
+        <li><a href={withBase("/client-results")}>Client Results</a></li>
+        <li><a href={withBase("/blog")}>Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-size:14px;">Contact</h3>
+      <ul>
+        <li><a href={withBase("/contact")}>General Enquiry</a></li>
+        <li><a href={withBase("/contact#quote")}>Request a Quote</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-size:14px;">&nbsp;</h3>
+      <p class="muted" style="font-size:13px;">
+        <a href="https://netintellect.mspprocess.net/" target="_blank" rel="noopener">Remote Support</a><br>
+        info@netintellect.com.au
+      </p>
+      <p class="muted" style="font-size:12px;">&copy; {year} Net Intellect</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--color-charcoal); color: #c7d0d4; padding: 40px 0 24px; margin-top: 0; }
+  .site-footer h3 { color: #fff; }
+  .site-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+  .site-footer a { color: #c7d0d4; }
+  .site-footer a:hover { color: #fff; }
+</style>

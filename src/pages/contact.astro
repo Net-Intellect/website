@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// TODO (PRD §6.3): replace with the real Power Automate HTTP-trigger URLs once
+// the flows exist. Each form posts its own `source` value so the flow can tag
+// the lead before writing it into Autotask/BMS.
+const FORM_ENDPOINT = "https://REPLACE-WITH-POWER-AUTOMATE-HTTP-TRIGGER-URL";
+---
+<BaseLayout
+  title="Contact Us"
+  description="Get in touch with Net Intellect for a general enquiry or to request a quote."
+>
+  <section class="section section-dark" style="text-align:center;">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p class="muted" style="max-width:560px;margin:0 auto;">
+        Two clear paths in, each routed to the right follow-up — not the CTA sprawl of the old site.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <div class="card" id="audit">
+        <h2 style="font-size:16px;">General Enquiry</h2>
+        <form method="post" action={FORM_ENDPOINT} data-form="general">
+          <input type="hidden" name="source" value="contact-general" />
+          <label class="field-label" for="g-name">Name</label>
+          <input class="field" id="g-name" name="name" required />
+          <label class="field-label" for="g-email">Email</label>
+          <input class="field" id="g-email" name="email" type="email" required />
+          <label class="field-label" for="g-phone">Phone</label>
+          <input class="field" id="g-phone" name="phone" />
+          <label class="field-label" for="g-message">Message</label>
+          <textarea class="field" id="g-message" name="message" rows="4" required></textarea>
+          <button class="btn" type="submit" style="margin-top:8px;">Send Enquiry</button>
+        </form>
+      </div>
+
+      <div class="card" id="quote">
+        <h2 style="font-size:16px;">Request a Quote</h2>
+        <form method="post" action={FORM_ENDPOINT} data-form="quote">
+          <input type="hidden" name="source" value="contact-quote" />
+          <label class="field-label" for="q-name">Name</label>
+          <input class="field" id="q-name" name="name" required />
+          <label class="field-label" for="q-company">Company</label>
+          <input class="field" id="q-company" name="company" required />
+          <label class="field-label" for="q-contact">Email / Phone</label>
+          <input class="field" id="q-contact" name="contact" required />
+          <label class="field-label" for="q-need">What do you need?</label>
+          <textarea class="field" id="q-need" name="need" rows="4" required></textarea>
+          <button class="btn" type="submit" style="margin-top:8px;">Request a Quote</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container" style="margin-top:24px;">
+      <div class="card">
+        <h3 style="font-size:14px;">Albury Office</h3>
+        <p class="muted" style="font-size:14px;">
+          [Address to be confirmed] · [Phone to be confirmed] · info@netintellect.com.au
+        </p>
+        <p style="font-size:13px;">
+          <a href="https://netintellect.mspprocess.net/" target="_blank" rel="noopener">Remote Support →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .field-label { display: block; font-size: 12.5px; font-weight: 600; margin: 12px 0 4px; }
+  .field {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 14px;
+  }
+</style>

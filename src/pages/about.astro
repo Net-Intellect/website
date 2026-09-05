@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTASection from "../components/CTASection.astro";
+
+const partners = ["Microsoft", "Dell", "ThreatLocker", "Kaseya", "Proofpoint", "Inforcer", "CyberSecure", "WatchGuard"];
+---
+<BaseLayout
+  title="About"
+  description="Net Intellect is a Managed Service Provider based in Albury-Wodonga, serving NSW/VIC since 1996."
+>
+  <section class="section section-dark">
+    <div class="container">
+      <h1>About Net Intellect</h1>
+      <p class="muted" style="max-width:560px;">
+        A Managed Service Provider based in Albury, NSW, serving the Albury-Wodonga region and
+        the Riverina in northeast Victoria — including Shepparton, Wangaratta, Wagga, Rufus and
+        Leeton — since 1996.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-3">
+      <div class="card">
+        <h3 style="font-size:15px;">Company History</h3>
+        <p class="muted" style="font-size:14px;">
+          Founded in 1996. [Full company history narrative to be confirmed with Andre.]
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:15px;">Vision &amp; Values</h3>
+        <p class="muted" style="font-size:14px;">
+          [Vision/values statement to be confirmed with Andre — retained from the old About page,
+          copy to be tightened per the brief.]
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:15px;">Who We Serve</h3>
+        <p class="muted" style="font-size:14px;">
+          From 5-computer businesses to 100+ computer organisations, with particular depth in
+          aged care and community health.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sunken">
+    <div class="container">
+      <h2 style="text-align:center;font-size:20px;">Our Partners</h2>
+      <div class="grid grid-4" style="margin-top:20px;">
+        {partners.map((p) => (
+          <div class="card" style="text-align:center;font-weight:700;font-size:13px;color:var(--color-text-muted);">{p}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import { withBase } from "../lib/url";
+---
+<header class="nav">
+  <div class="container nav-inner">
+    <a href={withBase("/")} class="nav-logo">Net Intellect</a>
+    <nav class="nav-links">
+      <a href={withBase("/services")}>Services</a>
+      <a href={withBase("/industries")}>Industries We Serve</a>
+      <a href={withBase("/about")}>About</a>
+      <a href={withBase("/client-results")}>Client Results</a>
+      <a href={withBase("/blog")}>Blog</a>
+      <a href={withBase("/contact")}>Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn" href={withBase("/contact#audit")}>Book Your Cybersecurity Audit</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px 24px;
+  }
+  .nav-logo { font-weight: 700; font-size: 18px; color: var(--color-charcoal); }
+  .nav-links { display: flex; gap: 22px; flex-wrap: wrap; font-weight: 600; font-size: 14px; }
+  .nav-links a { color: var(--color-text); }
+  .nav-links a:hover { color: var(--color-accent); }
+  .nav-cta .btn { font-size: 13px; padding: 10px 16px; }
+  .nav { border-bottom: 1px solid var(--color-border); }
+  @media (max-width: 900px) {
+    .nav-inner { flex-wrap: wrap; }
+  }
+</style>

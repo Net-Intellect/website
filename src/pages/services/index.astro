@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTASection from "../../components/CTASection.astro";
+import { withBase } from "../../lib/url";
+
+const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout
+  title="Services"
+  description="Managed IT support, cybersecurity, cloud, AI implementation, networking, disaster recovery, voice and broadband services for regional NSW/VIC businesses."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Services</h1>
+      <p class="muted" style="max-width:560px;">
+        Eight services, each with its own outcome-focused page — replacing the old site's
+        five-link "IT Solutions" hub.
+      </p>
+      <div class="grid grid-3" style="margin-top:24px;">
+        {services.map((service) => (
+          <a class="card" href={withBase(`/services/${service.id}`)} style="text-decoration:none;">
+            <h3 style="font-size:16px;">{service.data.name}</h3>
+            <p class="muted" style="font-size:14px;margin:0;">{service.data.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CTASection />
+</BaseLayout>

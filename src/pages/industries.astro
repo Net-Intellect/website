@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTASection from "../components/CTASection.astro";
+
+const industries = [
+  { name: "Aged Care IT Support", note: "Phase 2 — landing page not yet built" },
+  { name: "Community Health IT Support", note: "Phase 2 — landing page not yet built" },
+  { name: "SMB / General Business", note: "Phase 2 — landing page not yet built" },
+  { name: "AI Implementation & Management", note: "Phase 2 — landing page not yet built, no named-client proof point yet" },
+];
+---
+<BaseLayout
+  title="Industries We Serve"
+  description="Net Intellect has particular depth in aged care and community health, alongside general SMB clients across regional NSW/VIC."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Industries We Serve</h1>
+      <p class="muted" style="max-width:600px;">
+        A light-touch hub, not a deep-content page itself — the four dedicated pages below are
+        Phase 2 work (PRD §4), each with its own distinct proof points and content, not a
+        templated swap of this page.
+      </p>
+      <div class="grid grid-2" style="margin-top:24px;">
+        {industries.map((i) => (
+          <div class="card">
+            <h3 style="font-size:15px;">{i.name}</h3>
+            <p class="muted" style="font-size:13px;margin:0;">{i.note}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CTASection />
+</BaseLayout>

@@ -1,0 +1,83 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTASection from "../components/CTASection.astro";
+import { withBase } from "../lib/url";
+
+const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
+const testimonials = await getCollection("testimonials");
+const featured = ["Westmont Aged Care", "UPA Riverina Murray", "AWAHS"];
+const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data.client));
+---
+<BaseLayout
+  title="Managed IT Support — Albury-Wodonga & the Riverina"
+  description="Managed IT support, Microsoft 365/Azure, cybersecurity and AI governance for aged care, community health and growing businesses across Albury-Wodonga and the Riverina."
+>
+  <section class="section section-dark hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="tag">Managed IT · Albury-Wodonga &amp; the Riverina</span>
+        <h1 style="font-size:clamp(28px,4vw,40px);margin-top:16px;">
+          Managed IT Support Trusted by Aged Care, Community Health &amp; Growing Businesses
+        </h1>
+        <p class="muted" style="max-width:520px;font-size:16px;">
+          Responsive IT support, Microsoft 365/Azure, cybersecurity and AI governance — backed by
+          10 to 18+ year client relationships across regional NSW/VIC.
+        </p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a class="btn" href={withBase("/contact#audit")}>Book Your Cybersecurity Audit</a>
+          <a class="btn btn-outline" href={withBase("/contact")}>Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-bg-sunken);padding:14px 0;">
+    <div class="container" style="display:flex;gap:28px;justify-content:center;flex-wrap:wrap;font-size:12px;font-weight:700;color:var(--color-text-muted);">
+      <span>WESTMONT AGED CARE · 10+ YRS</span>
+      <span>UPA RIVERINA MURRAY · ~18 YRS</span>
+      <span>AWAHS · 10+ YRS</span>
+      <span>RIVMED</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 style="text-align:center;">Services</h2>
+      <p class="muted" style="text-align:center;max-width:520px;margin:0 auto 28px;">
+        Replaces the old five-link "IT Solutions" hub — every service gets its own outcome-focused page.
+      </p>
+      <div class="grid grid-4">
+        {services.map((service) => (
+          <a class="card" href={withBase(`/services/${service.id}`)} style="text-decoration:none;">
+            <h3 style="font-size:15px;">{service.data.name}</h3>
+            <p class="muted" style="font-size:13.5px;margin:0;">{service.data.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sunken">
+    <div class="container">
+      <h2 style="text-align:center;">Client Results</h2>
+      <div class="grid grid-3" style="margin-top:20px;">
+        {featuredTestimonials.map((t) => (
+          <div class="card">
+            <div style="font-weight:700;font-size:13px;margin-bottom:8px;">{t.data.client} · {t.data.tenure}</div>
+            <p class="muted" style="font-size:13.5px;margin:0;">{t.data.quote}</p>
+          </div>
+        ))}
+      </div>
+      <p style="text-align:center;margin-top:20px;">
+        <a href={withBase("/client-results")}>See all client results →</a>
+      </p>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>
+
+<style>
+  .hero-inner { padding: 48px 0; }
+</style>
