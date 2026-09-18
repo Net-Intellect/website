@@ -1,0 +1,165 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTASection from "../../components/CTASection.astro";
+import { withBase } from "../../lib/url";
+
+// Copy sourced from the authoritative 2026 collateral:
+// Internal-Ops/Solutions 2026/SupportNet Security Solutions/SupportNet_Security_Catalogue_2026.md
+// and the client-facing SupportNet_Security_Client_Brochure_2026 (capability-card edition).
+// An addition to the site, not a replacement: the existing six-tier SupportNet page
+// (/supportnet) and the Cybersecurity & Compliance service page stay as they are.
+// Reached from its own tile on /services.
+
+const platform = [
+  { name: "Endpoints", blurb: "Visibility, antivirus, EDR, 24-hour managed detection, patching, application control, vulnerability management and backup." },
+  { name: "Identity & Microsoft 365", blurb: "Activity monitoring, credential exposure, security baseline enforcement and active threat response." },
+  { name: "Email & Human Risk", blurb: "Advanced email protection, user guidance, awareness education and phishing simulation." },
+  { name: "Security Operations", blurb: "Managed detection, SIEM correlation, Microsoft 365 incident context and external exposure intelligence." },
+  { name: "Cloud Data", blurb: "Independent Microsoft 365 backup and point-in-time recovery for supported workloads." },
+  { name: "Domains", blurb: "SPF, DKIM and DMARC monitoring and management for covered email domains." },
+];
+
+const outcomes = [
+  { name: "Improved visibility", blurb: "Management receives a clearer view of security posture, incidents, risks and priorities." },
+  { name: "Reduced cyber risk", blurb: "Weaknesses and exposure are identified and prioritised before they become larger incidents." },
+  { name: "Stronger governance", blurb: "Security activities, ownership, decisions and risk acceptance become visible and accountable." },
+  { name: "Faster response", blurb: "Specialist expertise and agreed authority reduce delay when significant threats are detected." },
+];
+
+const badges = ["24-hour Managed Detection & Response", "Security Governance", "Zero Trust Application Control", "Vulnerability Management", "Incident Response"];
+---
+<BaseLayout
+  title="SupportNet Security"
+  description="SupportNet Security is Net Intellect's coordinated cyber security platform and specialist security service, built to work alongside your internal IT team — technology, governance and response."
+>
+  <nav class="container" style="padding:14px 24px;font-size:12px;color:var(--color-text-muted);">
+    <a href={withBase("/")}>Home</a> / <a href={withBase("/services")}>Services</a> /
+    <strong style="color:var(--color-charcoal);">SupportNet Security</strong>
+  </nav>
+
+  <section class="section section-dark">
+    <div class="container hero-inner">
+      <div>
+        <span class="tag">Services · SupportNet Security</span>
+        <h1 style="margin:14px 0;max-width:640px;">Technology. Governance. Response.</h1>
+        <p class="muted" style="max-width:600px;">
+          A coordinated cyber security platform and specialist security service designed to work
+          alongside internal IT teams. SupportNet Security gives your internal IT team access to
+          the security technology, governance and operational expertise that many organisations
+          cannot justify building alone.
+        </p>
+        <a class="btn" href={withBase("/contact#audit")}>Book Your Cybersecurity Audit</a>
+      </div>
+      <img src={withBase("/images/supportnet-shield.svg")} alt="The SupportNet Security shield" style="max-height:none;" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:70ch;">
+      <h2 style="font-size:20px;">Built for organisations with internal IT</h2>
+      <p class="muted">
+        Cyber security is a business-risk, governance and operational challenge. Internal IT
+        teams are essential, but they are often required to balance security with user support,
+        infrastructure, projects and day-to-day business operations. Net Intellect provides the
+        specialist security platform, intelligence, governance and response capability — your
+        internal IT team continues to operate the technology environment.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-sunken">
+    <div class="container">
+      <h2 style="font-size:20px;text-align:center;">Three Connected Layers</h2>
+      <div class="grid grid-3" style="margin-top:20px;">
+        <div class="card">
+          <h3 style="font-size:15px;">SupportNet Security Platform</h3>
+          <p class="muted" style="margin:0;font-size:13.5px;">The integrated technology and security-control foundation — one coordinated platform, not a collection of disconnected products.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:15px;">SupportNet Security Insights</h3>
+          <p class="muted" style="margin:0;font-size:13.5px;">Your virtual security manager — governance, reporting and actionable intelligence.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:15px;">SupportNet Managed Security Response</h3>
+          <p class="muted" style="margin:0;font-size:13.5px;">Your outsourced security operations team — investigation, containment and incident ownership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 style="font-size:20px;text-align:center;">The Security Platform</h2>
+      <p class="muted" style="text-align:center;max-width:60ch;margin:8px auto 0;">One coordinated foundation across six areas. Every applicable user, endpoint, tenant and domain is included according to the agreed coverage — controls are not removed individually to reduce price.</p>
+      <div class="grid grid-3" style="margin-top:20px;">
+        {platform.map((item) => (
+          <div class="card">
+            <h3 style="font-size:14.5px;">{item.name}</h3>
+            <p class="muted" style="margin:0;font-size:13.5px;">{item.blurb}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sunken">
+    <div class="container">
+      <h2 style="font-size:20px;text-align:center;">Choose Your Management Layer</h2>
+      <div class="grid grid-2" style="margin-top:20px;">
+        <div class="card">
+          <h3 style="font-size:16px;">SupportNet Security Insights</h3>
+          <p class="muted" style="font-size:13.5px;">Security governance and actionable intelligence. Net Intellect provides platform oversight, monthly reporting, quarterly governance, annual strategic review and prioritised guidance. Your IT team implements recommendations and responds operationally.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:16px;">SupportNet Managed Security Response</h3>
+          <p class="muted" style="font-size:13.5px;">Everything in Security Insights, plus investigation, containment, remediation, recovery coordination, incident ownership and closure reporting for covered security incidents. Your IT team continues to own normal IT operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 style="font-size:20px;text-align:center;">Business Outcomes</h2>
+      <div class="grid grid-4" style="margin-top:20px;">
+        {outcomes.map((item) => (
+          <div class="card" style="text-align:center;">
+            <h3 style="font-size:15px;color:var(--color-accent-ink);">{item.name}</h3>
+            <p class="muted" style="margin:0;font-size:13.5px;">{item.blurb}</p>
+          </div>
+        ))}
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
+        {badges.map((b) => <span class="tag" style="background:var(--color-charcoal);">{b}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sunken">
+    <div class="container grid grid-2">
+      <div class="card">
+        <h3 style="font-size:15px;">Minimum Microsoft licensing</h3>
+        <p class="muted" style="margin:0;font-size:13.5px;">All covered users must be licensed with Microsoft 365 Business Premium, or a Microsoft licensing combination Net Intellect has confirmed in writing provides equivalent required security capabilities.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:15px;">Mandatory cyber insurance</h3>
+        <p class="muted" style="margin:0;font-size:13.5px;">Clients must maintain adequate, current cyber insurance throughout the SupportNet Security agreement and provide evidence of coverage on reasonable request.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center;">
+    <div class="container">
+      <p class="muted" style="margin:0;">
+        SupportNet Security is not a replacement helpdesk or general IT service — it's the
+        specialist cyber security capability that works alongside the people who already
+        understand and operate your technology environment. Looking for fully managed security
+        instead? See our
+        {" "}<a href={withBase("/services/cybersecurity-compliance")}>Cybersecurity &amp; Compliance</a>{" "}
+        service.
+      </p>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

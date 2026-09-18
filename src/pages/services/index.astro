@@ -14,7 +14,7 @@ const services = (await getCollection("services")).sort((a, b) => a.data.order -
     <div class="container">
       <h1>Services</h1>
       <p class="muted" style="max-width:560px;">
-        Eight services, each with its own outcome-focused page — replacing the old site's
+        Our services, each with its own outcome-focused page — replacing the old site's
         five-link "IT Solutions" hub.
       </p>
       <div class="grid grid-3" style="margin-top:24px;">
@@ -24,6 +24,10 @@ const services = (await getCollection("services")).sort((a, b) => a.data.order -
             <p class="muted" style="font-size:14px;margin:0;">{service.data.summary}</p>
           </a>
         ))}
+        <a class="card" href={withBase("/services/supportnet-security")} style="text-decoration:none;">
+          <h3 style="font-size:16px;">SupportNet Security</h3>
+          <p class="muted" style="font-size:14px;margin:0;">A coordinated security platform plus governance and response, built to work alongside your internal IT team.</p>
+        </a>
       </div>
     </div>
   </section>
