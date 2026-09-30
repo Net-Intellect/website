@@ -7,8 +7,13 @@ import { withBase } from "../lib/url";
     <nav class="nav-links">
       <a href={withBase("/services")}>Services</a>
       <a href={withBase("/industries")}>Industries We Serve</a>
-      <a href={withBase("/about")}>About</a>
-      <a href={withBase("/team")}>Team</a>
+      <div class="nav-item">
+        <a href={withBase("/about")} aria-haspopup="true">About <span aria-hidden="true" class="caret">▾</span></a>
+        <div class="nav-sub">
+          <a href={withBase("/about")}>About Us</a>
+          <a href={withBase("/team")}>Our Team</a>
+        </div>
+      </div>
       <a href={withBase("/client-results")}>Client Results</a>
       <a href={withBase("/blog")}>Blog</a>
       <a href={withBase("/contact")}>Contact</a>
@@ -31,10 +36,23 @@ import { withBase } from "../lib/url";
   .nav-logo img { height: 44px; width: auto; display: block; }
   .nav-links { display: flex; gap: 22px; flex-wrap: wrap; font-weight: 600; font-size: 14px; }
   .nav-links a { color: var(--color-text); }
+  .nav-item { position: relative; }
+  .caret { font-size: 10px; }
+  .nav-sub {
+    display: none; position: absolute; top: 100%; left: -12px; z-index: 10;
+    min-width: 160px; padding: 8px 0; background: #fff;
+    border: 1px solid var(--color-border); border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.10);
+  }
+  .nav-item:hover .nav-sub, .nav-item:focus-within .nav-sub { display: block; }
+  .nav-sub a { display: block; padding: 8px 16px; white-space: nowrap; }
   .nav-links a:hover { color: var(--color-accent); }
   .nav-cta .btn { font-size: 13px; padding: 10px 16px; }
   .nav { border-bottom: 1px solid var(--color-border); }
   @media (max-width: 900px) {
     .nav-inner { flex-wrap: wrap; }
+    .nav-sub { position: static; display: block; border: 0; box-shadow: none; padding: 4px 0 0 12px; min-width: 0; }
+    .nav-item { display: flex; flex-direction: column; }
+    .caret { display: none; }
   }
 </style>
