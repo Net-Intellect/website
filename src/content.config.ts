@@ -43,4 +43,16 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { services, testimonials, blog };
+const team = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/team" }),
+  schema: z.object({
+    name: z.string(),
+    role: z.string(),
+    order: z.number(),
+    bio: z.string(),
+    // Path under public/, e.g. "images/team/jane-smith.jpg". Initials show when omitted.
+    photo: z.string().optional(),
+  }),
+});
+
+export const collections = { services, testimonials, blog, team };
