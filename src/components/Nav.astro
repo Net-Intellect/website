@@ -3,7 +3,7 @@ import { withBase } from "../lib/url";
 ---
 <header class="nav">
   <div class="container nav-inner">
-    <a href={withBase("/")} class="nav-logo">Net Intellect</a>
+    <a href={withBase("/")} class="nav-logo" aria-label="Net Intellect home"><img src={withBase("/images/logo.png")} alt="Net Intellect — we've got IT covered" width="1514" height="466" /></a>
     <nav class="nav-links">
       <a href={withBase("/services")}>Services</a>
       <a href={withBase("/industries")}>Industries We Serve</a>
@@ -26,7 +26,8 @@ import { withBase } from "../lib/url";
     gap: 24px;
     padding: 16px 24px;
   }
-  .nav-logo { font-weight: 700; font-size: 18px; color: var(--color-charcoal); }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo img { height: 44px; width: auto; display: block; }
   .nav-links { display: flex; gap: 22px; flex-wrap: wrap; font-weight: 600; font-size: 14px; }
   .nav-links a { color: var(--color-text); }
   .nav-links a:hover { color: var(--color-accent); }

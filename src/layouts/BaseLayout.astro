@@ -1,6 +1,7 @@
 ---
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import { withBase } from "../lib/url";
 import "../styles/global.css";
 
 interface Props {
@@ -16,7 +17,9 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} · Net Intellect</title>
     <meta name="description" content={description} />
-    <link rel="icon" href="data:," />
+    <link rel="icon" href={withBase("/favicon.ico")} sizes="48x48" />
+    <link rel="icon" href={withBase("/favicon.png")} type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href={withBase("/apple-touch-icon.png")} />
   </head>
   <body>
     <Nav />
