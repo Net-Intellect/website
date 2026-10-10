@@ -27,7 +27,8 @@ const testimonials = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/testimonials" }),
   schema: z.object({
     client: z.string(),
-    segment: z.enum(["Aged Care", "Community Health", "General Business"]),
+    segment: z.enum(["Aged Care", "Community Health", "NDIS", "General Business"]),
+    attribution: z.string().optional(),
     tenure: z.string(),
     quote: z.string(),
     outcome: z.string(),

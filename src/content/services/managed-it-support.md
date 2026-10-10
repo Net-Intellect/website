@@ -15,8 +15,8 @@ included:
   - Proactive monitoring and patching (Datto RMM)
   - Asset and documentation management (IT Glue)
   - Regular strategic IT review
-proofPointClient: RivMed
-proofPointQuote: "[Testimonial quote to be confirmed — brief notes RivMed specifically praised ticket process and response times]"
+proofPointClient: Kindred Support — Taya Owen, Founder & CEO
+proofPointQuote: "The team is efficient, responsive and incredibly easy to deal with. Nothing ever feels too much trouble — if an issue comes up, it is dealt with quickly and professionally, without the endless back and forth you often experience with other providers."
 heroImage: /images/hero/it-support.jpg
 ---
 

@@ -27,6 +27,7 @@ const testimonials = await getCollection("testimonials");
           <div style="font-weight:700;font-size:15px;margin:10px 0 4px;">{t.data.client}</div>
           <div class="muted" style="font-size:12.5px;margin-bottom:10px;">{t.data.tenure}</div>
           <p class="muted" style="font-size:14px;">{t.data.quote}</p>
+          {t.data.attribution && <div style="font-size:13px;font-weight:700;margin-bottom:8px;">— {t.data.attribution}</div>}
           <div style="font-size:12.5px;font-weight:700;color:var(--color-accent-ink);">Outcome: {t.data.outcome}</div>
         </div>
       ))}
