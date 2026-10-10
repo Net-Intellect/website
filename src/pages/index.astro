@@ -34,11 +34,11 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
   </section>
 
   <section style="background:var(--color-bg-sunken);padding:14px 0;">
-    <div class="container" style="display:flex;gap:28px;justify-content:center;flex-wrap:wrap;font-size:12px;font-weight:700;color:var(--color-text-muted);">
-      <span>WESTMONT AGED CARE · 10+ YRS</span>
-      <span>UPA RIVERINA MURRAY · ~18 YRS</span>
-      <span>AWAHS · 10+ YRS</span>
-      <span>KINDRED SUPPORT · NDIS</span>
+    <div class="container client-strip">
+      <a href={withBase("/client-results#westmont-aged-care")}>WESTMONT AGED CARE · 10+ YRS</a>
+      <a href={withBase("/client-results#upa-riverina-murray")}>UPA RIVERINA MURRAY · ~18 YRS</a>
+      <a href={withBase("/client-results#awahs")}>AWAHS · 10+ YRS</a>
+      <a href={withBase("/client-results#kindred-support")}>KINDRED SUPPORT · NDIS</a>
     </div>
   </section>
 
@@ -116,3 +116,12 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
 
   <CTASection />
 </BaseLayout>
+
+<style>
+  .client-strip {
+    display: flex; gap: 28px; justify-content: center; flex-wrap: wrap;
+    font-size: 12px; font-weight: 700;
+  }
+  .client-strip a { color: var(--color-text-muted); text-decoration: none; }
+  .client-strip a:hover, .client-strip a:focus-visible { color: var(--color-accent-ink); text-decoration: underline; }
+</style>

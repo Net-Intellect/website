@@ -22,7 +22,7 @@ const testimonials = await getCollection("testimonials");
   <section class="section">
     <div class="container grid grid-2">
       {testimonials.map((t) => (
-        <div class="card">
+        <div class="card testimonial" id={t.id}>
           <span class="tag" style={t.data.segment === "General Business" ? "background:#8a8f94;" : ""}>{t.data.segment}</span>
           <div style="font-weight:700;font-size:15px;margin:10px 0 4px;">{t.data.client}</div>
           <div class="muted" style="font-size:12.5px;margin-bottom:10px;">{t.data.tenure}</div>
@@ -36,3 +36,8 @@ const testimonials = await getCollection("testimonials");
 
   <CTASection headline="Want results like these?" body="" />
 </BaseLayout>
+
+<style>
+  .testimonial { scroll-margin-top: 96px; }
+  .testimonial:target { border-color: var(--color-accent); box-shadow: 0 0 0 2px var(--color-accent); }
+</style>
