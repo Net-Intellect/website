@@ -18,4 +18,4 @@ proofPointClient: UPA Riverina Murray
 proofPointQuote: "[Testimonial quote to be confirmed — multi-site connectivity]"
 ---
 
-Retained from the old site's service list; needs real content rather than the old link-only listing.
+The right internet connection depends on how your business uses it: cloud apps, video calls, multiple sites, or backups running overnight. We recommend, arrange and support business-grade connectivity that fits, and deal with the provider for you when something goes wrong.

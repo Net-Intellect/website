@@ -18,4 +18,4 @@ proofPointClient: Michael Thompson
 proofPointQuote: "[Testimonial quote to be confirmed — general business, infrastructure upgrade]"
 ---
 
-Merged from the old site's two thin, separate Voice and VOIP pages into one real page — brief flagged these as candidates to combine.
+Phones still matter, especially to the clients and families who call you. We provide business phone systems that work from the office, from home or on the road, with the call handling your team actually needs, supported by the same people who look after the rest of your IT.

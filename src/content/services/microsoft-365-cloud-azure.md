@@ -20,4 +20,4 @@ proofPointQuote: "[Testimonial quote to be confirmed — ~18 year client, multi-
 heroImage: /images/hero/cloud-solutions.jpg
 ---
 
-Previously buried as a single stub page; this page gives Microsoft 365/Cloud/Azure its own real content, matching Net Intellect's Microsoft partner status.
+Microsoft 365 and Azure run most of what your team does each day: email, files, Teams, identity and, increasingly, the servers and desktops themselves. We set them up properly, keep them secure and correctly licensed, and manage them as part of your wider IT environment, from a straightforward Microsoft 365 tenant through to Azure-hosted infrastructure and virtual desktops.

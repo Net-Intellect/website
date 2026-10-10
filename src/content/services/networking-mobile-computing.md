@@ -19,4 +19,4 @@ proofPointClient: AWAHS
 proofPointQuote: "[Testimonial quote to be confirmed — 10+ year client, multi-site with an outreach van]"
 ---
 
-Retained from the old site's service list; needs real content rather than the old link-only listing.
+Your network is the part of IT nobody thinks about until it stops working. We design, install and manage wired and wireless networks that stay fast and secure as you grow, across one site or several, and look after the laptops, phones and tablets your team relies on away from the office.

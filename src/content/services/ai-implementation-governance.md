@@ -16,8 +16,8 @@ included:
   - AI usage policy development
   - Staff training and ongoing monitoring
 proofPointClient: ""
-proofPointQuote: "[No named-client AI proof point exists yet — flagged as a content gap in the brief. Lean on existing cybersecurity/compliance credibility (INKY, ThreatLocker, RocketCyber) until a real case study exists.]"
+proofPointQuote: "AI tools are rolled out inside the same managed security stack we already run for our clients, including ThreatLocker, INKY, RocketCyber and SaaS Protection, so adopting AI doesn't open new gaps."
 heroImage: /images/hero/ai-ready.jpg
 ---
 
-This service has zero dedicated content on the old site today, same as Cybersecurity & Compliance. Content here needs more frequent review than the other seven pages — AI tools, Microsoft licensing/naming and capabilities change quickly; verify specific product claims at time of writing rather than assuming.
+Most businesses already have staff using AI tools, often without any policy on what data goes into them. We help you take control of that: assess where you're ready, choose tools that fit your security and compliance obligations, roll them out properly, and put the guardrails, training and ongoing management in place so AI becomes a safe part of how you work rather than a risk you haven't measured.

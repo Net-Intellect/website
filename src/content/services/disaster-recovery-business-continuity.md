@@ -19,4 +19,4 @@ proofPointClient: Westmont Aged Care
 proofPointQuote: "[Testimonial quote to be confirmed — 24/7 operation, downtime directly affects resident care]"
 ---
 
-Retained from the old site's service list; needs real content rather than the old link-only listing.
+A backup only matters if you can actually restore from it, quickly, when it counts. We put backup and recovery in place across your servers, cloud services and Microsoft 365 data, test it, and plan with you how the business keeps running through an outage, a hardware failure or a cyber incident.

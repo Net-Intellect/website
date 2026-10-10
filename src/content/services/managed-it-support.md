@@ -20,4 +20,6 @@ proofPointQuote: "The team is efficient, responsive and incredibly easy to deal 
 heroImage: /images/hero/it-support.jpg
 ---
 
-Managed IT Support replaces the old "IT Solutions" hub's five thin links with a real, outcome-focused service page. [Exact service inclusions and SLAs to be confirmed by Andre before this copy is finalised — PRD §12.]
+One team responsible for your whole IT environment: the help desk your staff call, the monitoring and patching that stops problems before they start, and the documentation that means whoever picks up your ticket already knows your setup. You get a predictable monthly cost and people who know your business, based in Albury and on site when you need them.
+
+[Exact service inclusions and SLAs to be confirmed by Andre before launch.]

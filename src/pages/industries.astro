@@ -3,23 +3,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/CTASection.astro";
 
 const industries = [
-  { name: "Aged Care IT Support", note: "Phase 2 — landing page not yet built" },
-  { name: "Community Health IT Support", note: "Phase 2 — landing page not yet built" },
-  { name: "SMB / General Business", note: "Phase 2 — landing page not yet built" },
-  { name: "AI Implementation & Management", note: "Phase 2 — landing page not yet built, no named-client proof point yet" },
+  { name: "Aged Care", note: "24/7 operations where downtime affects resident care. We've supported Westmont Aged Care for over 10 years and UPA Riverina Murray for around 18." },
+  { name: "Community Health", note: "Multi-site organisations, outreach services and tight budgets that need predictable IT costs. AWAHS has been with us for over 10 years." },
+  { name: "NDIS Providers", note: "Growing providers who need IT they can rely on without building an internal IT team, like Kindred Support." },
+  { name: "Small & Medium Business", note: "From 5-computer offices to organisations with 100+ users, with right-sized support that grows with you." },
 ];
 ---
 <BaseLayout
   title="Industries We Serve"
-  description="Net Intellect has particular depth in aged care and community health, alongside general SMB clients across regional NSW/VIC."
+  description="Net Intellect has particular depth in aged care, community health and NDIS providers, alongside small and medium businesses across regional NSW/VIC."
 >
   <section class="section">
     <div class="container">
       <h1>Industries We Serve</h1>
       <p class="muted" style="max-width:600px;">
-        A light-touch hub, not a deep-content page itself — the four dedicated pages below are
-        Phase 2 work (PRD §4), each with its own distinct proof points and content, not a
-        templated swap of this page.
+        We support businesses of every kind across Albury-Wodonga, the Riverina and northeast
+        Victoria, with particular depth in sectors where reliable IT directly affects the people you care for.
       </p>
       <div class="grid grid-2" style="margin-top:24px;">
         {industries.map((i) => (
