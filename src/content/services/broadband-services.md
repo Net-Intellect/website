@@ -14,8 +14,8 @@ included:
   - Business broadband procurement and setup
   - Failover/backup connectivity options
   - Ongoing monitoring and fault management
-proofPointClient: UPA Riverina Murray
-proofPointQuote: "[Testimonial quote to be confirmed — multi-site connectivity]"
+proofPointClient: AWAHS
+proofPointQuote: "Their knowledge and expertise of the IT industry together with solution design has made them invaluable to AWAHS over the years. — David Noonan, CEO"
 ---
 
 The right internet connection depends on how your business uses it: cloud apps, video calls, multiple sites, or backups running overnight. We recommend, arrange and support business-grade connectivity that fits, and deal with the provider for you when something goes wrong.

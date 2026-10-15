@@ -15,8 +15,8 @@ included:
   - SharePoint & OneDrive migration
   - Azure Virtual Desktop deployment
   - Ongoing cloud management and cost review
-proofPointClient: UPA Riverina Murray
-proofPointQuote: "[Testimonial quote to be confirmed — ~18 year client, multi-site]"
+proofPointClient: Kindred Support
+proofPointQuote: "Net Intellect has taken the stress out of this side of our business and given us confidence that when something needs attention, it will be handled. — Taya Owen, Founder & CEO"
 heroImage: /images/hero/cloud-solutions.jpg
 ---
 
