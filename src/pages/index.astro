@@ -37,7 +37,7 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
     <div class="container client-strip">
       <a href={withBase("/client-results#westmont-aged-care")}>WESTMONT AGED CARE · 10+ YRS</a>
       <a href={withBase("/client-results#upa-riverina-murray")}>UPA RIVERINA MURRAY · ~18 YRS</a>
-      <a href={withBase("/client-results#awahs")}>AWAHS · 10+ YRS</a>
+      <a href={withBase("/client-results#awahs")}>AWAHS · 15+ YRS</a>
       <a href={withBase("/client-results#kindred-support")}>KINDRED SUPPORT · NDIS</a>
     </div>
   </section>
@@ -62,8 +62,8 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
         <div class="card">
           <h3 style="font-size:15px;">Relationships measured in decades</h3>
           <p class="muted" style="font-size:14px;margin:0;">
-            Clients like UPA Riverina Murray (~18 years), Westmont Aged Care and AWAHS (10+ years
-            each) have stayed because the people who know their environment are still here.
+            Clients like UPA Riverina Murray (~18 years), AWAHS (15+ years) and Westmont Aged Care
+            (10+ years) have stayed because the people who know their environment are still here.
           </p>
         </div>
         <div class="card">
@@ -103,6 +103,7 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
       <div class="grid grid-3" style="margin-top:20px;">
         {featuredTestimonials.map((t) => (
           <div class="card">
+            {t.data.logo && <img src={withBase(t.data.logo)} alt={`${t.data.client} logo`} style="max-height:28px;max-width:110px;width:auto;height:auto;object-fit:contain;margin-bottom:10px;" />}
             <div style="font-weight:700;font-size:13px;margin-bottom:8px;">{t.data.client} · {t.data.tenure}</div>
             <p class="muted" style="font-size:13.5px;margin:0;">{t.data.quote}</p>
           </div>

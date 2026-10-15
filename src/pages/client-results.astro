@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/CTASection.astro";
+import { withBase } from "../lib/url";
 
 const testimonials = await getCollection("testimonials");
 ---
@@ -23,7 +24,10 @@ const testimonials = await getCollection("testimonials");
     <div class="container grid grid-2">
       {testimonials.map((t) => (
         <div class="card testimonial" id={t.id}>
-          <span class="tag" style={t.data.segment === "General Business" ? "background:#8a8f94;" : ""}>{t.data.segment}</span>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <span class="tag" style={t.data.segment === "General Business" ? "background:#8a8f94;" : ""}>{t.data.segment}</span>
+            {t.data.logo && <img src={withBase(t.data.logo)} alt={`${t.data.client} logo`} class="client-logo" />}
+          </div>
           <div style="font-weight:700;font-size:15px;margin:10px 0 4px;">{t.data.client}</div>
           <div class="muted" style="font-size:12.5px;margin-bottom:10px;">{t.data.tenure}</div>
           <p class="muted" style="font-size:14px;">{t.data.quote}</p>
@@ -40,4 +44,5 @@ const testimonials = await getCollection("testimonials");
 <style>
   .testimonial { scroll-margin-top: 96px; }
   .testimonial:target { border-color: var(--color-accent); box-shadow: 0 0 0 2px var(--color-accent); }
+  .client-logo { max-height: 32px; max-width: 120px; width: auto; height: auto; object-fit: contain; }
 </style>

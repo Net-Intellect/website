@@ -29,6 +29,9 @@ const testimonials = defineCollection({
     client: z.string(),
     segment: z.enum(["Aged Care", "Community Health", "NDIS", "General Business"]),
     attribution: z.string().optional(),
+    // Path under public/, e.g. "images/clients/acme.png" — the client's own
+    // logo, pulled from their current public website. Omit if none found.
+    logo: z.string().optional(),
     tenure: z.string(),
     quote: z.string(),
     outcome: z.string(),
