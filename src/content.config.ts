@@ -13,6 +13,23 @@ const services = defineCollection({
     proofPointClient: z.string(),
     proofPointQuote: z.string(),
     heroImage: z.string().optional(),
+    offerings: z
+      .array(
+        z.object({
+          group: z.string(),
+          intro: z.string().optional(),
+          items: z.array(
+            z.object({
+              name: z.string(),
+              platform: z.string().optional(),
+              summary: z.string(),
+              features: z.array(z.string()).optional(),
+              bestFor: z.string().optional(),
+            }),
+          ),
+        }),
+      )
+      .optional(),
     relatedPage: z
       .object({
         title: z.string(),
