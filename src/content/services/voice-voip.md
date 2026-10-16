@@ -15,6 +15,7 @@ outcomes:
 #   Teams Calling = UCTeams (Operator Connect / Direct Routing)
 #   Webex = UCXcel · Mobile-first = UCEclipse · Small Business = UCXpress
 #   Teams contact centre = CC4Teams / ROGER365.io · Dedicated contact centre = Xima
+#   Contact centre connectivity = CXConnect · Desk phones = Net Intellect's own supply (Yealink + others TBC)
 #   Call recording, SMS, eFax, UCPayd, CRM integrations, UCInsights, Number Management = UX add-ons
 offerings:
   - group: Cloud Phone Systems
@@ -72,9 +73,19 @@ offerings:
           - Wallboards, agent dashboards and real-time analytics
           - Automation and intelligent routing
         bestFor: Intake, booking and customer service teams handling high call volumes
+      - name: Contact Centre Connectivity
+        platform: SIP trunking
+        summary: Business-grade voice connectivity for organisations already running an enterprise contact centre platform such as Genesys or NICE.
+        features:
+          - Resilient SIP trunking for your existing platform
+          - Built with compliance requirements in mind
+          - Supported locally, alongside the rest of your IT
+        bestFor: Larger organisations with an established contact centre platform
   - group: Add-Ons
-    intro: Extras that plug into any of the phone systems above.
+    intro: Phones and extras that plug into any of the phone systems above.
     items:
+      - name: Desk Phones
+        summary: Yealink and other leading desk phones, supplied, configured and ready to plug in on day one, including Teams-certified models.
       - name: Compliant Call Recording
         summary: Record calls for quality, training and compliance, with AI-powered analysis to surface trends and coaching opportunities.
       - name: Business SMS
@@ -93,6 +104,7 @@ included:
   - Needs assessment and recommendation of the right platform
   - Number porting from your current provider
   - Setup, configuration, cut-over and go-live
+  - Desk phones supplied and configured, if you want them
   - Staff training and post-go-live support
   - Ongoing support and moves, adds and changes, from the same team that looks after your IT
 proofPointClient: SJE Consulting
