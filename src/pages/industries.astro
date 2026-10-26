@@ -13,18 +13,22 @@ const industries = [
   title="Industries We Serve"
   description="Net Intellect has particular depth in aged care, community health and NDIS providers, alongside small and medium businesses across regional NSW/VIC."
 >
-  <section class="section">
+  <section class="section page-intro">
     <div class="container">
       <h1>Industries We Serve</h1>
-      <p class="muted" style="max-width:600px;">
+      <p class="muted lead">
         We support businesses of every kind across Albury-Wodonga, the Riverina and northeast
         Victoria, with particular depth in sectors where reliable IT directly affects the people you care for.
       </p>
-      <div class="grid grid-2" style="margin-top:24px;">
+    </div>
+  </section>
+  <section class="section section-sunken page-grid">
+    <div class="container">
+      <div class="grid grid-2">
         {industries.map((i) => (
           <div class="card">
-            <h3 style="font-size:15px;">{i.name}</h3>
-            <p class="muted" style="font-size:13px;margin:0;">{i.note}</p>
+            <h3 style="font-size:20px;">{i.name}</h3>
+            <p class="muted" style="font-size:16px;margin:0;">{i.note}</p>
           </div>
         ))}
       </div>

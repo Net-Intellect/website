@@ -14,9 +14,9 @@ const posts = (await getCollection("blog")).sort(
       <div class="grid grid-2" style="margin-top:24px;">
         {posts.map((post) => (
           <a class="card" href={withBase(`/blog/${post.id}`)} style="text-decoration:none;">
-            <div class="muted" style="font-size:12px;">{post.data.pubDate.toISOString().slice(0, 10)}</div>
-            <h3 style="font-size:16px;">{post.data.title}</h3>
-            <p class="muted" style="font-size:14px;margin:0;">{post.data.summary}</p>
+            <div class="muted" style="font-size:13px;">{post.data.pubDate.toISOString().slice(0, 10)}</div>
+            <h3 style="font-size:17px;">{post.data.title}</h3>
+            <p class="muted" style="font-size:15.5px;margin:0;">{post.data.summary}</p>
           </a>
         ))}
       </div>

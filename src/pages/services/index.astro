@@ -10,23 +10,27 @@ const services = (await getCollection("services")).sort((a, b) => a.data.order -
   title="Services"
   description="Managed IT support, cybersecurity, cloud, AI implementation, networking, disaster recovery, voice and broadband services for regional NSW/VIC businesses."
 >
-  <section class="section">
+  <section class="section page-intro">
     <div class="container">
       <h1>Services</h1>
-      <p class="muted" style="max-width:560px;">
+      <p class="muted lead">
         From day-to-day support to cybersecurity, cloud and AI, everything your business needs
         from IT, delivered by one local team that knows your environment.
       </p>
-      <div class="grid grid-3" style="margin-top:24px;">
+    </div>
+  </section>
+  <section class="section section-sunken page-grid">
+    <div class="container">
+      <div class="grid grid-3">
         {services.map((service) => (
           <a class="card" href={withBase(`/services/${service.id}`)} style="text-decoration:none;">
-            <h3 style="font-size:16px;">{service.data.name}</h3>
-            <p class="muted" style="font-size:14px;margin:0;">{service.data.summary}</p>
+            <h3 style="font-size:17px;">{service.data.name}</h3>
+            <p class="muted" style="font-size:15.5px;margin:0;">{service.data.summary}</p>
           </a>
         ))}
         <a class="card" href={withBase("/services/supportnet-security")} style="text-decoration:none;">
-          <h3 style="font-size:16px;">SupportNet Security</h3>
-          <p class="muted" style="font-size:14px;margin:0;">A coordinated security platform plus governance and response, built to work alongside your internal IT team.</p>
+          <h3 style="font-size:17px;">SupportNet Security</h3>
+          <p class="muted" style="font-size:15.5px;margin:0;">A coordinated security platform plus governance and response, built to work alongside your internal IT team.</p>
         </a>
       </div>
     </div>

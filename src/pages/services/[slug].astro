@@ -17,7 +17,7 @@ const { data } = service;
 const { Content } = await render(service);
 ---
 <BaseLayout title={data.name} description={data.summary}>
-  <nav class="container" style="padding:14px 24px;font-size:12px;color:var(--color-text-muted);">
+  <nav class="container" style="padding:14px 24px;font-size:13px;color:var(--color-text-muted);">
     <a href={withBase("/")}>Home</a> / <a href={withBase("/services")}>Services</a> /
     <strong style="color:var(--color-charcoal);">{data.name}</strong>
   </nav>
@@ -36,10 +36,10 @@ const { Content } = await render(service);
 
   <section class="section">
     <div class="container">
-      <h2 style="font-size:20px;">Who This Is For</h2>
+      <h2 style="font-size:22px;">Who This Is For</h2>
       <div class="grid grid-3">
         {data.whoFor.map((item) => (
-          <div class="card"><p class="muted" style="margin:0;font-size:14px;">{item}</p></div>
+          <div class="card"><p class="muted" style="margin:0;font-size:15.5px;">{item}</p></div>
         ))}
       </div>
     </div>
@@ -47,10 +47,10 @@ const { Content } = await render(service);
 
   <section class="section section-sunken">
     <div class="container">
-      <h2 style="font-size:20px;">Outcomes</h2>
+      <h2 style="font-size:22px;">Outcomes</h2>
       <div class="grid grid-3">
         {data.outcomes.map((item) => (
-          <div class="card"><p style="margin:0;font-weight:700;font-size:14px;">{item}</p></div>
+          <div class="card"><p style="margin:0;font-weight:700;font-size:15.5px;">{item}</p></div>
         ))}
       </div>
     </div>
@@ -59,14 +59,14 @@ const { Content } = await render(service);
   {data.offerings && data.offerings.map((group, i) => (
     <section class:list={["section", { "section-sunken": i % 2 === 1 }]}>
       <div class="container">
-        <h2 style="font-size:20px;">{group.group}</h2>
+        <h2 style="font-size:22px;">{group.group}</h2>
         {group.intro && <p class="muted" style="max-width:640px;margin-top:0;">{group.intro}</p>}
         <div class:list={["grid", group.items.length % 3 === 0 || group.items.length > 4 ? "grid-3" : "grid-2"]} style="margin-top:16px;">
           {group.items.map((item) => (
             <div class="card offering">
               {item.platform && <span class="offering-platform">{item.platform}</span>}
-              <h3 style="font-size:16px;margin:6px 0 8px;">{item.name}</h3>
-              <p class="muted" style="font-size:14px;margin:0 0 10px;">{item.summary}</p>
+              <h3 style="font-size:17px;margin:6px 0 8px;">{item.name}</h3>
+              <p class="muted" style="font-size:15.5px;margin:0 0 10px;">{item.summary}</p>
               {item.features && (
                 <ul class="offering-features">
                   {item.features.map((f) => <li>{f}</li>)}
@@ -83,18 +83,18 @@ const { Content } = await render(service);
   <section class="section">
     <div class="container grid grid-2">
       <div>
-        <h2 style="font-size:20px;">What's Included</h2>
+        <h2 style="font-size:22px;">What's Included</h2>
         <div class="card">
-          <ul style="margin:0;padding-left:18px;font-size:14px;color:var(--color-text-muted);">
+          <ul style="margin:0;padding-left:18px;font-size:15.5px;color:var(--color-text-muted);">
             {data.included.map((item) => <li>{item}</li>)}
           </ul>
         </div>
       </div>
       <div>
-        <h2 style="font-size:20px;">Proof Point</h2>
+        <h2 style="font-size:22px;">Proof Point</h2>
         <div class="card">
-          {data.proofPointClient && <div style="font-weight:700;font-size:13px;margin-bottom:8px;">{data.proofPointClient}</div>}
-          <p class="muted" style="margin:0;font-size:14px;">{data.proofPointQuote}</p>
+          {data.proofPointClient && <div style="font-weight:700;font-size:14px;margin-bottom:8px;">{data.proofPointClient}</div>}
+          <p class="muted" style="margin:0;font-size:15.5px;">{data.proofPointQuote}</p>
         </div>
       </div>
     </div>
@@ -108,8 +108,8 @@ const { Content } = await render(service);
       <div class="container">
         <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;">
           <div style="max-width:60ch;">
-            <div style="font-weight:700;font-size:15px;margin-bottom:6px;">{data.relatedPage.title}</div>
-            <p class="muted" style="margin:0;font-size:14px;">{data.relatedPage.blurb}</p>
+            <div style="font-weight:700;font-size:16.5px;margin-bottom:6px;">{data.relatedPage.title}</div>
+            <p class="muted" style="margin:0;font-size:15.5px;">{data.relatedPage.blurb}</p>
           </div>
           <a class="btn" href={withBase(data.relatedPage.href)} style="white-space:nowrap;">
             See the {data.relatedPage.title} stack →

@@ -20,7 +20,7 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
         <h1 style="font-size:clamp(28px,4vw,40px);margin-top:16px;">
           Managed IT Support Trusted by Aged Care, Community Health &amp; Growing Businesses
         </h1>
-        <p class="muted" style="max-width:520px;font-size:16px;">
+        <p class="muted" style="max-width:520px;font-size:17px;">
           Responsive IT support, Microsoft 365/Azure, cybersecurity and AI governance — backed by
           10 to 15+ year client relationships across regional NSW/VIC.
         </p>
@@ -46,41 +46,41 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
     <div class="container">
       <span class="tag">Local since 1996</span>
       <h2 style="font-size:clamp(24px,3.2vw,32px);margin-top:14px;">30 Years Local. Still Local.</h2>
-      <p class="muted" style="max-width:640px;font-size:16px;">
+      <p class="muted" style="max-width:640px;font-size:17px;">
         Net Intellect has been looking after businesses from our Albury office since 1996. When
         something goes wrong, you're dealing with people who know your systems, know your site and
         can be there in person — not a ticket queue in another state.
       </p>
       <div class="grid grid-3" style="margin-top:24px;">
         <div class="card">
-          <h3 style="font-size:15px;">One office, right here</h3>
-          <p class="muted" style="font-size:14px;margin:0;">
+          <h3 style="font-size:16.5px;">One office, right here</h3>
+          <p class="muted" style="font-size:15.5px;margin:0;">
             Based in Albury and on the road across Albury-Wodonga, the Riverina and northeast
             Victoria. On-site when you need us, not just on the phone.
           </p>
         </div>
         <div class="card">
-          <h3 style="font-size:15px;">Relationships measured in decades</h3>
-          <p class="muted" style="font-size:14px;margin:0;">
+          <h3 style="font-size:16.5px;">Relationships measured in decades</h3>
+          <p class="muted" style="font-size:15.5px;margin:0;">
             Clients like AWAHS (15+ years), Westmont Aged Care and SJE Consulting (10+ years each)
             have stayed because the people who know their environment are still here.
           </p>
         </div>
         <div class="card">
-          <h3 style="font-size:15px;">Local hands, enterprise-grade tools</h3>
-          <p class="muted" style="font-size:14px;margin:0;">
+          <h3 style="font-size:16.5px;">Local hands, enterprise-grade tools</h3>
+          <p class="muted" style="font-size:15.5px;margin:0;">
             Microsoft 365, Azure, cybersecurity and AI governance, delivered by a team you can meet
             face to face.
           </p>
         </div>
       </div>
-      <p style="margin-top:20px;">
+      <p style="margin:20px 0 0;">
         <a href={withBase("/about")}>Our story →</a>
       </p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-sunken">
     <div class="container">
       <h2 style="text-align:center;">Services</h2>
       <p class="muted" style="text-align:center;max-width:520px;margin:0 auto 28px;">
@@ -89,23 +89,23 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
       <div class="grid grid-4">
         {services.map((service) => (
           <a class="card" href={withBase(`/services/${service.id}`)} style="text-decoration:none;">
-            <h3 style="font-size:15px;">{service.data.name}</h3>
-            <p class="muted" style="font-size:13.5px;margin:0;">{service.data.summary}</p>
+            <h3 style="font-size:16.5px;">{service.data.name}</h3>
+            <p class="muted" style="font-size:15px;margin:0;">{service.data.summary}</p>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section section-sunken">
+  <section class="section">
     <div class="container">
       <h2 style="text-align:center;">Client Results</h2>
       <div class="grid grid-3" style="margin-top:20px;">
         {featuredTestimonials.map((t) => (
           <div class="card">
             {t.data.logo && <img src={withBase(t.data.logo)} alt={`${t.data.client} logo`} style="max-height:28px;max-width:110px;width:auto;height:auto;object-fit:contain;margin-bottom:10px;" />}
-            <div style="font-weight:700;font-size:13px;margin-bottom:8px;">{t.data.client} · {t.data.tenure}</div>
-            <p class="muted" style="font-size:13.5px;margin:0;">{t.data.quote}</p>
+            <div style="font-weight:700;font-size:14px;margin-bottom:8px;">{t.data.client} · {t.data.tenure}</div>
+            <p class="muted" style="font-size:15px;margin:0;">{t.data.quote}</p>
           </div>
         ))}
       </div>

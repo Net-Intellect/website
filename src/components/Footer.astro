@@ -1,48 +1,63 @@
 ---
+import { getCollection } from "astro:content";
 import { withBase } from "../lib/url";
 const year = new Date().getFullYear();
+const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
 ---
 <footer class="site-footer">
-  <div class="container grid grid-4">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href={withBase("/")} class="footer-logo" aria-label="Net Intellect home"><img src={withBase("/images/logo-reverse.png")} alt="Net Intellect — we've got IT covered" width="1514" height="466" /></a>
+      <p>
+        <a href="https://netintellect.mspprocess.net/" target="_blank" rel="noopener">Remote Support</a><br>
+        support@netintellect.com.au
+      </p>
+    </div>
     <div>
-      <h3 style="font-size:14px;">Services</h3>
+      <h3>Services</h3>
       <ul>
-        <li><a href={withBase("/services")}>All services</a></li>
+        {services.map((service) => (
+          <li><a href={withBase(`/services/${service.id}`)}>{service.data.name}</a></li>
+        ))}
+        <li><a href={withBase("/services/supportnet-security")}>SupportNet Security</a></li>
       </ul>
     </div>
     <div>
-      <h3 style="font-size:14px;">Company</h3>
+      <h3>Company</h3>
       <ul>
         <li><a href={withBase("/about")}>About</a></li>
         <li><a href={withBase("/team")}>Our Team</a></li>
+        <li><a href={withBase("/industries")}>Industries We Serve</a></li>
         <li><a href={withBase("/client-results")}>Client Results</a></li>
         <li><a href={withBase("/blog")}>Blog</a></li>
       </ul>
     </div>
     <div>
-      <h3 style="font-size:14px;">Contact</h3>
+      <h3>Contact</h3>
       <ul>
         <li><a href={withBase("/contact")}>General Enquiry</a></li>
         <li><a href={withBase("/contact#quote")}>Request a Quote</a></li>
+        <li><a href={withBase("/contact#audit")}>Book a Cybersecurity Audit</a></li>
       </ul>
     </div>
-    <div>
-      <a href={withBase("/")} class="footer-logo" aria-label="Net Intellect home"><img src={withBase("/images/logo-reverse.png")} alt="Net Intellect — we've got IT covered" width="1514" height="466" /></a>
-      <p class="muted" style="font-size:13px;">
-        <a href="https://netintellect.mspprocess.net/" target="_blank" rel="noopener">Remote Support</a><br>
-        support@netintellect.com.au
-      </p>
-      <p class="muted" style="font-size:12px;">&copy; {year} Net Intellect</p>
-    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; {year} Net Intellect · Albury NSW · Local since 1996</p>
   </div>
 </footer>
 
 <style>
-  .site-footer { background: var(--color-charcoal); color: #c7d0d4; padding: 40px 0 24px; margin-top: 0; }
-  .site-footer h3 { color: #fff; }
-  .footer-logo { display: block; margin-bottom: 12px; }
-  .footer-logo img { height: 40px; width: auto; display: block; }
-  .site-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
-  .site-footer a { color: #c7d0d4; }
-  .site-footer a:hover { color: #fff; }
+  .site-footer { background: var(--color-charcoal); color: #d3dadd; padding: 48px 0 0; font-size: 15.5px; }
+  .footer-grid { display: grid; grid-template-columns: 1.2fr 1.4fr 1fr 1fr; gap: 32px; }
+  .site-footer h3 { color: #fff; font-size: 17px; margin: 0 0 14px; }
+  .footer-logo { display: block; margin-bottom: 16px; }
+  .footer-logo img { width: 190px; height: auto; display: block; }
+  .footer-brand p { margin: 0; line-height: 1.7; }
+  .site-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .site-footer a { color: #d3dadd; }
+  .site-footer a:hover, .site-footer a:focus-visible { color: #fff; text-decoration: underline; }
+  .footer-bottom { margin-top: 40px; padding-top: 18px; padding-bottom: 22px; border-top: 1px solid rgba(255, 255, 255, .14); }
+  .footer-bottom p { margin: 0; font-size: 14.5px; color: #b9c4c8; }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
 </style>
