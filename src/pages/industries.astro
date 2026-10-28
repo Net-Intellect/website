@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/CTASection.astro";
+import Icon from "../components/Icon.astro";
 
 const industries = [
-  { name: "Aged Care", note: "24/7 operations where downtime affects resident care. We've supported Westmont Aged Care for over 10 years." },
-  { name: "Community Health", note: "Multi-site organisations, outreach services and tight budgets that need predictable IT costs. AWAHS has been with us for over 15 years." },
-  { name: "NDIS Providers", note: "Growing providers who need IT they can rely on without building an internal IT team, like Kindred Support." },
-  { name: "Small & Medium Business", note: "From 5-computer offices to organisations with 100+ users, with right-sized support that grows with you." },
+  { name: "Aged Care", icon: "aged-care", note: "24/7 operations where downtime affects resident care. We've supported Westmont Aged Care for over 10 years." },
+  { name: "Community Health", icon: "community-health", note: "Multi-site organisations, outreach services and tight budgets that need predictable IT costs. AWAHS has been with us for over 15 years." },
+  { name: "NDIS Providers", icon: "ndis", note: "Growing providers who need IT they can rely on without building an internal IT team, like Kindred Support." },
+  { name: "Small & Medium Business", icon: "business", note: "From 5-computer offices to organisations with 100+ users, with right-sized support that grows with you." },
 ];
 ---
 <BaseLayout
@@ -27,6 +28,7 @@ const industries = [
       <div class="grid grid-2">
         {industries.map((i) => (
           <div class="card">
+            <Icon name={i.icon} />
             <h3 style="font-size:20px;">{i.name}</h3>
             <p class="muted" style="font-size:16px;margin:0;">{i.note}</p>
           </div>

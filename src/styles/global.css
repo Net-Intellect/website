@@ -132,3 +132,15 @@ a.card:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2
 @media (max-width: 800px) {
   .hero-inner { grid-template-columns: 1fr; }
 }
+
+/* Card icons (src/components/Icon.astro): blue line drawing on a soft blue tile. */
+.icon { display: inline-flex; color: var(--color-accent); flex: none; }
+.icon svg { width: 100%; height: 100%; display: block; }
+.icon-tile {
+  width: 58px; height: 58px; padding: 11px;
+  border-radius: 12px; background: #e6f5fb;
+  margin-bottom: 14px;
+}
+.card-icon-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+/* Quotation mark above testimonial text. */
+.icon:not(.icon-tile) { width: 26px; height: 26px; color: #9ccfe6; margin: 4px 0 6px; }

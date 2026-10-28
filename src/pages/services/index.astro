@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTASection from "../../components/CTASection.astro";
+import Icon from "../../components/Icon.astro";
 import { withBase } from "../../lib/url";
 
 const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
@@ -24,11 +25,13 @@ const services = (await getCollection("services")).sort((a, b) => a.data.order -
       <div class="grid grid-3">
         {services.map((service) => (
           <a class="card" href={withBase(`/services/${service.id}`)} style="text-decoration:none;">
+            <Icon name={service.id} />
             <h3 style="font-size:17px;">{service.data.name}</h3>
             <p class="muted" style="font-size:15.5px;margin:0;">{service.data.summary}</p>
           </a>
         ))}
         <a class="card" href={withBase("/services/supportnet-security")} style="text-decoration:none;">
+          <Icon name="supportnet-security" />
           <h3 style="font-size:17px;">SupportNet Security</h3>
           <p class="muted" style="font-size:15.5px;margin:0;">A coordinated security platform plus governance and response, built to work alongside your internal IT team.</p>
         </a>

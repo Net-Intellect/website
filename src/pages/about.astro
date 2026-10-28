@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/CTASection.astro";
+import Icon from "../components/Icon.astro";
 
 const partners = ["Microsoft", "Dell", "ThreatLocker", "Kaseya", "Proofpoint", "Inforcer", "CyberSecure", "WatchGuard"];
 ---
@@ -22,6 +23,7 @@ const partners = ["Microsoft", "Dell", "ThreatLocker", "Kaseya", "Proofpoint", "
   <section class="section">
     <div class="container grid grid-3">
       <div class="card">
+        <Icon name="history" />
         <h3 style="font-size:16.5px;">Company History</h3>
         <p class="muted" style="font-size:15.5px;">
           Founded in Albury in 1996, and still here 30 years on — same region, one office, with
@@ -30,12 +32,14 @@ const partners = ["Microsoft", "Dell", "ThreatLocker", "Kaseya", "Proofpoint", "
         </p>
       </div>
       <div class="card">
+        <Icon name="values" />
         <h3 style="font-size:16.5px;">Vision &amp; Values</h3>
         <p class="muted" style="font-size:15.5px;">
           [Vision/values statement to be confirmed with Andre.]
         </p>
       </div>
       <div class="card">
+        <Icon name="people" />
         <h3 style="font-size:16.5px;">Who We Serve</h3>
         <p class="muted" style="font-size:15.5px;">
           From 5-computer businesses to 100+ computer organisations, with particular depth in
