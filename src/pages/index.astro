@@ -36,7 +36,7 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
         </p>
         <div style="display:flex;gap:14px;flex-wrap:wrap;">
           <a class="btn" href={withBase("/contact#audit")}>Book Your Cybersecurity Audit</a>
-          <a class="btn btn-outline" href={withBase("/contact")}>Get in Touch</a>
+          <a class="btn btn-outline" href={withBase("/contact")}>Talk to Our Team</a>
         </div>
       </div>
       <img src={withBase("/images/hero/it-support.jpg")} alt="" />
@@ -117,11 +117,12 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
       <h2 style="text-align:center;">Client Results</h2>
       <div class="grid grid-3" style="margin-top:20px;">
         {featuredTestimonials.map((t) => (
-          <div class="card">
-            {t.data.logo && <img src={withBase(t.data.logo)} alt={`${t.data.client} logo`} style="max-height:28px;max-width:110px;width:auto;height:auto;object-fit:contain;margin-bottom:10px;" />}
+          <div class="card home-testimonial">
+            {t.data.logo && <span class="home-logo"><img src={withBase(t.data.logo)} alt={`${t.data.client} logo`} /></span>}
             <div style="font-weight:700;font-size:14px;margin-bottom:8px;">{t.data.client} · {t.data.tenure}</div>
             <Icon name="quote" tile={false} />
-            <p class="muted" style="font-size:15px;margin:0;">{t.data.quote}</p>
+            <p class="muted home-quote">{t.data.quote}</p>
+            <a class="home-read" href={withBase(`/client-results#${t.id}`)}>Read full story <span aria-hidden="true">→</span></a>
           </div>
         ))}
       </div>
@@ -147,4 +148,9 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
   .featured-service p { font-size: 16px; margin: 0 0 14px; }
   .featured-service .learn-more { margin-top: auto; font-weight: 700; font-size: 15.5px; color: var(--color-accent); }
   .featured-service:hover .learn-more { color: var(--color-accent-ink); }
+  .home-quote { font-size: 15.5px; margin: 0 0 12px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden; }
+  .home-read { font-weight: 700; font-size: 15px; margin-top: auto; }
+  .home-testimonial { display: flex; flex-direction: column; }
+  .home-logo { height: 40px; display: flex; align-items: center; margin-bottom: 10px; }
+  .home-logo img { max-height: 40px; max-width: 140px; width: auto; height: auto; object-fit: contain; }
 </style>

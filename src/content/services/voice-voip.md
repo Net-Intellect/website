@@ -3,13 +3,19 @@ name: Voice Services & VOIP
 order: 7
 summary: Cloud phone systems, Microsoft Teams calling and contact centres that work the way your team actually communicates, in the office, at home or on the road.
 whoFor:
-  - Businesses replacing an ageing on-premises phone system
+  - Small and medium businesses ready to move to a modern phone system
+  - Not-for-profits that need a professional phone system on a tight budget
+  - Corporates and multi-site organisations wanting one platform across every location
+  - Anyone replacing an ageing PABX or on-premises phone system
   - Organisations already on Microsoft 365 who want their phones in Teams
-  - Multi-site and mobile teams who need one number that follows them anywhere
+  - Mobile and remote staff who need their business number wherever they work
 outcomes:
-  - One phone system across every site, managed by the people who run the rest of your IT
-  - Keep your existing numbers, with no hardware PBX to maintain
-  - Predictable monthly cost, scaled up or down as your team changes
+  - Modern phone infrastructure, fully customisable to how your business works
+  - Portable, not locked down to a single site, so it moves with you
+  - "Works anywhere there's an internet connection: the office, home or on the road"
+  - Keep your existing numbers, with no PABX hardware to maintain
+  - One phone system across every site, looked after by the team that runs your IT
+  - A predictable monthly cost that scales up or down as your team changes
 # Product lineup is Net Intellect-branded and delivered on the Access4 platform
 # (channel-only wholesaler). Mapping, for internal reference only, never render:
 #   Teams Calling = UCTeams (Operator Connect / Direct Routing)

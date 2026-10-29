@@ -14,7 +14,8 @@ const testimonials = await getCollection("testimonials");
   <section class="section section-dark" style="text-align:center;">
     <div class="container">
       <h1>Client Results</h1>
-      <p class="muted" style="max-width:560px;margin:0 auto;">
+      <p class="results-tagline">Real businesses. Real partnerships.</p>
+      <p class="muted" style="max-width:560px;margin:0 auto;font-size:17px;">
         Many of our clients have been with us for over a decade. Here's what they say about working
         with Net Intellect, in their own words.
       </p>
@@ -24,18 +25,25 @@ const testimonials = await getCollection("testimonials");
   <section class="section section-sunken">
     <div class="container grid grid-2">
       {testimonials.map((t) => (
-        <div class="card testimonial" id={t.id}>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <article class="card testimonial" id={t.id}>
+          <div class="testimonial-top">
             <span class="tag" style={t.data.segment === "General Business" ? "background:#8a8f94;" : ""}>{t.data.segment}</span>
-            {t.data.logo && <img src={withBase(t.data.logo)} alt={`${t.data.client} logo`} class="client-logo" />}
+            {t.data.logo && (
+              <span class="client-logo-box">
+                <img src={withBase(t.data.logo)} alt={`${t.data.client} logo`} class="client-logo" />
+              </span>
+            )}
           </div>
-          <div style="font-weight:700;font-size:16.5px;margin:10px 0 4px;">{t.data.client}</div>
-          <div class="muted" style="font-size:13.5px;margin-bottom:10px;">{t.data.tenure}</div>
+          <h2 class="client-name">{t.data.client}</h2>
+          <div class="muted client-tenure">{t.data.tenure}</div>
           <Icon name="quote" tile={false} />
-          <p class="muted" style="font-size:15.5px;">{t.data.quote}</p>
-          {t.data.attribution && <div style="font-size:14px;font-weight:700;margin-bottom:8px;">— {t.data.attribution}</div>}
-          <div style="font-size:13.5px;font-weight:700;color:var(--color-accent-ink);">Outcome: {t.data.outcome}</div>
-        </div>
+          <p class="muted quote" id={`quote-${t.id}`}>{t.data.quote}</p>
+          <button type="button" class="read-more" aria-expanded="false" aria-controls={`quote-${t.id}`} hidden>
+            Read full story <span aria-hidden="true">→</span>
+          </button>
+          {t.data.attribution && <div class="attribution">— {t.data.attribution}</div>}
+          <div class="outcome"><strong>Outcome:</strong> {t.data.outcome}</div>
+        </article>
       ))}
     </div>
   </section>
@@ -44,7 +52,52 @@ const testimonials = await getCollection("testimonials");
 </BaseLayout>
 
 <style>
-  .testimonial { scroll-margin-top: 96px; }
+  .results-tagline { font-size: clamp(20px, 2.4vw, 26px); font-weight: 700; color: #fff; margin: 0 0 10px; }
+  .testimonial { display: flex; flex-direction: column; padding: 28px; scroll-margin-top: 96px; }
   .testimonial:target { border-color: var(--color-accent); box-shadow: 0 0 0 2px var(--color-accent); }
-  .client-logo { max-height: 32px; max-width: 120px; width: auto; height: auto; object-fit: contain; }
+  .testimonial-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; }
+  /* Every logo sits in the same-sized box so they read as one size. */
+  .client-logo-box { width: 150px; height: 48px; display: flex; align-items: center; justify-content: flex-end; }
+  .client-logo { max-width: 150px; max-height: 48px; width: auto; height: auto; object-fit: contain; }
+  .client-name { font-size: 19px; margin: 12px 0 2px; }
+  .client-tenure { font-size: 14px; margin-bottom: 4px; }
+  .quote { font-size: 16px; margin: 0 0 16px; }
+  .quote:has(+ .read-more:not([hidden])) { margin-bottom: 0; }
+  /* Long quotes show three lines until "Read full story" is pressed (script below). */
+  .quote.clamped { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
+  .read-more {
+    align-self: flex-start; margin: 8px 0 16px; padding: 0; border: 0; background: none; cursor: pointer;
+    font: inherit; font-size: 15px; font-weight: 700; color: var(--color-accent);
+  }
+  .read-more:hover { color: var(--color-accent-ink); }
+  .read-more:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 2px; }
+  .attribution { font-size: 14.5px; font-weight: 700; margin: -4px 0 16px; }
+  .outcome {
+    margin-top: auto; padding: 12px 14px; border-radius: 8px;
+    background: #e6f5fb; color: var(--color-accent-ink); font-size: 15px;
+  }
 </style>
+
+<script>
+  // Clamp each quote to three lines and offer "Read full story" only when there's more to read.
+  // Without JavaScript, every quote simply shows in full.
+  for (const card of document.querySelectorAll<HTMLElement>(".testimonial")) {
+    const quote = card.querySelector<HTMLElement>(".quote");
+    const button = card.querySelector<HTMLButtonElement>(".read-more");
+    if (!quote || !button) continue;
+    quote.classList.add("clamped");
+    if (quote.scrollHeight <= quote.clientHeight + 2) {
+      quote.classList.remove("clamped");
+      continue;
+    }
+    button.hidden = false;
+    button.addEventListener("click", () => {
+      const open = quote.classList.toggle("clamped") === false;
+      button.setAttribute("aria-expanded", String(open));
+      button.firstChild!.textContent = open ? "Show less " : "Read full story ";
+    });
+  }
+  // Arriving from a homepage link to one client opens that client's full quote.
+  const target = location.hash && document.getElementById(location.hash.slice(1));
+  target?.querySelector<HTMLButtonElement>(".read-more:not([hidden])")?.click();
+</script>
