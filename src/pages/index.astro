@@ -5,7 +5,16 @@ import CTASection from "../components/CTASection.astro";
 import Icon from "../components/Icon.astro";
 import { withBase } from "../lib/url";
 
-const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
+// Homepage features four core services (Ashley's review, item 7); the rest live on /services.
+const featuredServiceIds = [
+  "managed-it-support",
+  "cybersecurity-compliance",
+  "microsoft-365-cloud-azure",
+  "ai-implementation-governance",
+];
+const services = (await getCollection("services"))
+  .filter((s) => featuredServiceIds.includes(s.id))
+  .sort((a, b) => a.data.order - b.data.order);
 const testimonials = await getCollection("testimonials");
 const featured = ["Westmont Aged Care", "AWAHS", "SJE Consulting"];
 const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data.client));
@@ -83,19 +92,23 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
 
   <section class="section section-sunken">
     <div class="container">
-      <h2 style="text-align:center;">Services</h2>
-      <p class="muted" style="text-align:center;max-width:520px;margin:0 auto 28px;">
-        Everything your business needs from IT, delivered and supported by one local team.
+      <h2 style="text-align:center;">Everything your business needs from IT.</h2>
+      <p class="muted" style="text-align:center;max-width:560px;margin:0 auto 28px;font-size:18px;">
+        Practical technology support from one local team.
       </p>
-      <div class="grid grid-4">
+      <div class="grid grid-2 featured-services">
         {services.map((service) => (
-          <a class="card" href={withBase(`/services/${service.id}`)} style="text-decoration:none;">
+          <a class="card featured-service" href={withBase(`/services/${service.id}`)}>
             <Icon name={service.id} />
-            <h3 style="font-size:16.5px;">{service.data.name}</h3>
-            <p class="muted" style="font-size:15px;margin:0;">{service.data.summary}</p>
+            <h3>{service.data.name}</h3>
+            <p class="muted">{service.data.summary}</p>
+            <span class="learn-more">Learn more <span aria-hidden="true">→</span></span>
           </a>
         ))}
       </div>
+      <p style="text-align:center;margin:28px 0 0;">
+        <a class="btn" href={withBase("/services")}>View All Services</a>
+      </p>
     </div>
   </section>
 
@@ -128,4 +141,10 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
   }
   .client-strip a { color: var(--color-text-muted); text-decoration: none; }
   .client-strip a:hover, .client-strip a:focus-visible { color: var(--color-accent-ink); text-decoration: underline; }
+  .featured-services { max-width: 960px; margin: 0 auto; }
+  .featured-service { display: flex; flex-direction: column; padding: 28px; text-decoration: none; }
+  .featured-service h3 { font-size: 20px; margin-bottom: 8px; }
+  .featured-service p { font-size: 16px; margin: 0 0 14px; }
+  .featured-service .learn-more { margin-top: auto; font-weight: 700; font-size: 15.5px; color: var(--color-accent); }
+  .featured-service:hover .learn-more { color: var(--color-accent-ink); }
 </style>
