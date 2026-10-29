@@ -113,6 +113,12 @@ included:
   - Desk phones supplied and configured, if you want them
   - Staff training and post-go-live support
   - Ongoing support and moves, adds and changes, from the same team that looks after your IT
+# Until a proper enquiry form exists, the review button opens an email to sales@.
+cta:
+  label: Book a Phone System Review
+  href: "mailto:sales@netintellect.com.au?subject=Phone%20system%20review%20request&body=Hi%20Net%20Intellect%20team%2C%0A%0AI%27d%20like%20to%20book%20a%20free%20phone%20system%20review.%0A%0AName%3A%0ABusiness%3A%0APhone%3A%0ANumber%20of%20staff%20/%20sites%3A%0ACurrent%20phone%20system%20or%20provider%20%28if%20known%29%3A%0A%0AThanks"
+  headline: Is Your Phone System Still Working for You?
+  body: "Book a free review of your current phone system. We'll look at how your calls are handled today, what you're paying and what's tying you in, then come back with a clear, no-obligation proposal for a modern system that fits how your business works."
 proofPointClient: SJE Consulting
 proofPointQuote: "Net Intellect is responsive, reliable and goes the extra mile to keep our business connected and our computers up to date and cyber safe. We couldn't be happier with the service."
 ---

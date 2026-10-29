@@ -4,18 +4,21 @@ interface Props {
   headline?: string;
   body?: string;
   buttonText?: string;
+  href?: string;
 }
 const {
   headline = "Find Out Where You're Exposed — Before Someone Else Does",
   body = "Our Cybersecurity Audit gives you a clear, independent picture of the risks sitting in your network, servers, and endpoints. If you decide to move ahead with the recommended work, the full cost of your audit is credited straight back against the project.",
   buttonText = "Book Your Cybersecurity Audit",
+  href = "/contact#audit",
 } = Astro.props;
+const link = href.startsWith("/") ? withBase(href) : href;
 ---
 <section class="section section-accent cta-band" id="audit">
   <div class="container cta-inner">
     <h2>{headline}</h2>
     {body && <p>{body}</p>}
-    <a class="btn cta-btn" href={withBase("/contact#audit")}>{buttonText}</a>
+    <a class="btn cta-btn" href={link}>{buttonText}</a>
   </div>
 </section>
 

@@ -15,6 +15,7 @@ export async function getStaticPaths() {
 const { service } = Astro.props;
 const { data } = service;
 const { Content } = await render(service);
+const ctaHref = data.cta ? (data.cta.href.startsWith("/") ? withBase(data.cta.href) : data.cta.href) : withBase("/contact#audit");
 ---
 <BaseLayout title={data.name} description={data.summary}>
   <nav class="container" style="padding:14px 24px;font-size:13px;color:var(--color-text-muted);">
@@ -28,7 +29,7 @@ const { Content } = await render(service);
         <span class="tag">Service</span>
         <h1 style="margin:14px 0;">{data.name}</h1>
         <p class="muted" style="max-width:560px;">{data.summary}</p>
-        <a class="btn" href={withBase("/contact#audit")}>Book Your Cybersecurity Audit</a>
+        <a class="btn" href={ctaHref}>{data.cta?.label ?? "Book Your Cybersecurity Audit"}</a>
       </div>
       {data.heroImage && <img src={withBase(data.heroImage)} alt="" />}
     </div>
@@ -119,7 +120,9 @@ const { Content } = await render(service);
     </section>
   )}
 
-  <CTASection />
+  {data.cta
+    ? <CTASection headline={data.cta.headline} body={data.cta.body} buttonText={data.cta.label} href={data.cta.href} />
+    : <CTASection />}
 </BaseLayout>
 
 <style>
