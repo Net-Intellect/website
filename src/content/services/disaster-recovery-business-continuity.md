@@ -15,8 +15,8 @@ included:
   - Disaster recovery planning
   - Regular recovery testing
   - Business continuity documentation
-proofPointClient: Westmont Aged Care
-proofPointQuote: "[Testimonial quote to be confirmed — 24/7 operation, downtime directly affects resident care]"
+proofPointClient: The Man From Snowy River Bush Festival
+proofPointQuote: "Our account manager Nathan has always been extremely responsive and dealt with all of our IT issues quickly and efficiently along with the rest of the staff at Net Intellect. — Bernie Svoboda, Finance Manager"
 ---
 
 A backup only matters if you can actually restore from it, quickly, when it counts. We put backup and recovery in place across your servers, cloud services and Microsoft 365 data, test it, and plan with you how the business keeps running through an outage, a hardware failure or a cyber incident.

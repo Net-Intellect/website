@@ -16,7 +16,7 @@ const services = (await getCollection("services"))
   .filter((s) => featuredServiceIds.includes(s.id))
   .sort((a, b) => a.data.order - b.data.order);
 const testimonials = await getCollection("testimonials");
-const featured = ["Westmont Aged Care", "AWAHS", "SJE Consulting"];
+const featured = ["AWAHS", "SJE Consulting", "The Man From Snowy River Bush Festival"];
 const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data.client));
 ---
 <BaseLayout
@@ -45,9 +45,9 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
 
   <section style="background:var(--color-bg-sunken);padding:14px 0;">
     <div class="container client-strip">
-      <a href={withBase("/client-results#westmont-aged-care")}>WESTMONT AGED CARE · 10+ YRS</a>
       <a href={withBase("/client-results#awahs")}>AWAHS · 15+ YRS</a>
       <a href={withBase("/client-results#sje-consulting")}>SJE CONSULTING · 10+ YRS</a>
+      <a href={withBase("/client-results#man-from-snowy-river-bush-festival")}>MAN FROM SNOWY RIVER BUSH FESTIVAL</a>
       <a href={withBase("/client-results#kindred-support")}>KINDRED SUPPORT · NDIS</a>
     </div>
   </section>
@@ -72,8 +72,7 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
         <div class="card">
           <h3 style="font-size:16.5px;">Relationships measured in decades</h3>
           <p class="muted" style="font-size:15.5px;margin:0;">
-            Clients like AWAHS (15+ years), Westmont Aged Care and SJE Consulting (10+ years each)
-            have stayed because the people who know their environment are still here.
+            Clients like AWAHS (15+ years) and SJE Consulting (10+ years) have stayed because the people who know their environment are still here.
           </p>
         </div>
         <div class="card">

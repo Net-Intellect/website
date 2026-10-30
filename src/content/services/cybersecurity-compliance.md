@@ -12,12 +12,12 @@ outcomes:
   - 24/7 monitored protection
 included:
   - Endpoint detection & response (RocketCyber)
-  - Email security (INKY, Proofpoint)
+  - Email security (INKY)
   - Application control (ThreatLocker)
   - SaaS protection
   - Essential Eight alignment roadmap
-proofPointClient: Westmont Aged Care
-proofPointQuote: "[Testimonial quote to be confirmed — 10+ year client, 24/7 operation]"
+proofPointClient: Scope Project Consulting
+proofPointQuote: "Their team understands our business, provides clear advice and consistently delivers a high level of service. — Ben Fryer, Managing Director"
 heroImage: /images/hero/cybersecurity.jpg
 relatedPage:
   title: SupportNet Security
