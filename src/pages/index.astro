@@ -139,7 +139,7 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
      The band is sized to the photo (half the screen wide, so a third of the screen tall,
      capped at 600px); the photo only trims at the edges if the text needs more height. */
   .home-hero { position: relative; padding: 0; display: flex; align-items: center; min-height: min(33.333vw, 600px); }
-  .home-hero .hero-inner { grid-template-columns: 1fr; width: 100%; }
+  .home-hero .hero-inner { grid-template-columns: 1fr; width: 100%; padding: 48px 24px; }
   .home-hero .hero-inner > div { max-width: calc(50% - 40px); }
   .home-hero .hero-photo {
     position: absolute; top: 0; right: 0; bottom: 0; width: 50%; height: 100%;
