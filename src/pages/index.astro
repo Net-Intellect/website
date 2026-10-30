@@ -39,7 +39,7 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
           <a class="btn btn-outline" href={withBase("/contact")}>Talk to Our Team</a>
         </div>
       </div>
-      <img src={withBase("/images/hero/it-support.jpg")} alt="" />
+      <img class="hero-photo" src={withBase("/images/hero/home-headset-support.jpg")} alt="" width="1600" height="1067" />
     </div>
   </section>
 
@@ -135,6 +135,8 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
 </BaseLayout>
 
 <style>
+  /* Plain photo (no baked-in text), so it keeps its own shape instead of the banner ratio. */
+  .hero-photo { aspect-ratio: 3 / 2; object-fit: cover; }
   .client-strip {
     display: flex; gap: 28px; justify-content: center; flex-wrap: wrap;
     font-size: 14.5px; font-weight: 700; /* about 11pt */
