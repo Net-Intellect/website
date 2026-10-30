@@ -25,6 +25,7 @@ import { withBase } from "../lib/url";
 </header>
 
 <style>
+  /* Header text is one size throughout: 12pt (16px) for menu, dropdown and button. */
   .nav-inner {
     display: flex;
     align-items: center;
@@ -35,7 +36,7 @@ import { withBase } from "../lib/url";
   }
   .nav-logo { display: flex; align-items: center; }
   .nav-logo img { width: 145px; height: auto; display: block; }
-  .nav-links { display: flex; gap: 22px; flex-wrap: wrap; font-weight: 600; font-size: 15.5px; }
+  .nav-links { display: flex; gap: 22px; flex-wrap: wrap; font-weight: 600; font-size: 16px; }
   .nav-links a { color: var(--color-text); }
   .nav-item { position: relative; }
   .caret { font-size: 10px; }
@@ -48,7 +49,7 @@ import { withBase } from "../lib/url";
   .nav-item:hover .nav-sub, .nav-item:focus-within .nav-sub { display: block; }
   .nav-sub a { display: block; padding: 8px 16px; white-space: nowrap; }
   .nav-links a:hover { color: var(--color-accent); }
-  .nav-cta .btn { font-size: 14.5px; padding: 11px 18px; white-space: nowrap; }
+  .nav-cta .btn { font-size: 16px; padding: 11px 18px; white-space: nowrap; }
   .nav { border-bottom: 1px solid var(--color-border); }
   @media (max-width: 900px) {
     .nav-inner { flex-wrap: wrap; padding: 14px 24px; }
