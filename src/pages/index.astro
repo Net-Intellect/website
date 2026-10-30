@@ -23,7 +23,7 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
   title="Managed IT Support — Albury-Wodonga & the Riverina"
   description="Managed IT support, Microsoft 365/Azure, cybersecurity and AI governance for aged care, community health and growing businesses across Albury-Wodonga and the Riverina."
 >
-  <section class="section section-dark hero">
+  <section class="section section-dark hero home-hero">
     <div class="container hero-inner">
       <div>
         <span class="tag">Managed IT · Albury-Wodonga &amp; the Riverina</span>
@@ -135,8 +135,21 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
 </BaseLayout>
 
 <style>
-  /* Plain photo (no baked-in text), so it keeps its own shape instead of the banner ratio. */
-  .hero-photo { aspect-ratio: 3 / 2; object-fit: cover; }
+  /* Hero photo fills the right half of the dark band, top to bottom, at its own 3:2 shape.
+     The band is sized to the photo (half the screen wide, so a third of the screen tall,
+     capped at 600px); the photo only trims at the edges if the text needs more height. */
+  .home-hero { position: relative; padding: 0; display: flex; align-items: center; min-height: min(33.333vw, 600px); }
+  .home-hero .hero-inner { grid-template-columns: 1fr; width: 100%; }
+  .home-hero .hero-inner > div { max-width: calc(50% - 40px); }
+  .home-hero .hero-photo {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 50%; height: 100%;
+    aspect-ratio: auto; object-fit: cover; border-radius: 0;
+  }
+  @media (max-width: 800px) {
+    .home-hero { display: block; min-height: 0; }
+    .home-hero .hero-inner > div { max-width: none; }
+    .home-hero .hero-photo { position: static; width: 100%; height: auto; aspect-ratio: 3 / 2; border-radius: var(--radius); }
+  }
   .client-strip {
     display: flex; gap: 28px; justify-content: center; flex-wrap: wrap;
     font-size: 14.5px; font-weight: 700; /* about 11pt */
