@@ -1,5 +1,6 @@
 ---
-// Any link to a Microsoft Form (forms.office.com / forms.microsoft.com) opens the form
+// Any link to a Microsoft Form (forms.office.com, forms.microsoft.com or
+// forms.cloud.microsoft) opens the form
 // in a pop-up over the page instead of leaving the site. On phones, or without
 // JavaScript, the link simply opens the form in a new tab.
 ---
@@ -28,7 +29,7 @@
   const dialog = document.querySelector<HTMLDialogElement>(".form-popup");
   const frame = dialog?.querySelector("iframe");
   const links = document.querySelectorAll<HTMLAnchorElement>(
-    'a[href*="forms.office.com"], a[href*="forms.microsoft.com"]',
+    'a[href*="forms.office.com"], a[href*="forms.microsoft.com"], a[href*="forms.cloud.microsoft"]',
   );
   for (const link of links) {
     link.target = "_blank";
