@@ -16,8 +16,8 @@ included:
   - Application control (ThreatLocker)
   - SaaS protection
   - Essential Eight alignment roadmap
-proofPointClient: Scope Project Consulting
-proofPointQuote: "Their team understands our business, provides clear advice and consistently delivers a high level of service. — Ben Fryer, Managing Director"
+proofPointClient: Stanton & Killeen Wines
+proofPointQuote: "The team at Net Intellect prioritise business IT security, and it’s great to know that our systems and customer data are protected and monitored with the latest technology. — Natasha Killeen, General Manager"
 heroImage: /images/hero/cybersecurity.jpg
 relatedPage:
   title: SupportNet Security
