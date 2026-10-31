@@ -1,0 +1,50 @@
+---
+// Any link to a Microsoft Form (forms.office.com / forms.microsoft.com) opens the form
+// in a pop-up over the page instead of leaving the site. On phones, or without
+// JavaScript, the link simply opens the form in a new tab.
+---
+<dialog class="form-popup" aria-label="Form">
+  <button type="button" class="form-popup-close" aria-label="Close">×</button>
+  <iframe title="Form" loading="lazy"></iframe>
+</dialog>
+
+<style>
+  .form-popup {
+    width: min(760px, calc(100vw - 32px)); height: min(860px, calc(100vh - 48px));
+    padding: 0; border: 0; border-radius: var(--radius); overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+  }
+  .form-popup::backdrop { background: rgba(44, 57, 62, .7); }
+  .form-popup iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .form-popup-close {
+    position: absolute; top: 8px; right: 10px; width: 40px; height: 40px;
+    border: 0; border-radius: 50%; background: var(--color-charcoal); color: #fff;
+    font-size: 26px; line-height: 1; cursor: pointer;
+  }
+  .form-popup-close:hover, .form-popup-close:focus-visible { background: var(--color-accent); }
+</style>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>(".form-popup");
+  const frame = dialog?.querySelector("iframe");
+  const links = document.querySelectorAll<HTMLAnchorElement>(
+    'a[href*="forms.office.com"], a[href*="forms.microsoft.com"]',
+  );
+  for (const link of links) {
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.addEventListener("click", (event) => {
+      if (!dialog || !frame || window.innerWidth < 640) return;
+      event.preventDefault();
+      const url = new URL(link.href);
+      url.searchParams.set("embed", "true");
+      if (frame.src !== url.href) frame.src = url.href;
+      dialog.showModal();
+    });
+  }
+  dialog?.querySelector(".form-popup-close")?.addEventListener("click", () => dialog.close());
+  // Clicking the dimmed area outside the form closes it too.
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>
