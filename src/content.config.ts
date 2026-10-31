@@ -30,7 +30,7 @@ const services = defineCollection({
         }),
       )
       .optional(),
-    // Service-specific offer replacing the default cybersecurity audit button
+    // Service-specific offer replacing the default cybersecurity review button
     // (top of page and the blue band). href may be a site path or a mailto: link.
     cta: z
       .object({

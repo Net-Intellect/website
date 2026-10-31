@@ -29,7 +29,7 @@ const ctaHref = data.cta ? (data.cta.href.startsWith("/") ? withBase(data.cta.hr
         <span class="tag">Service</span>
         <h1 style="margin:14px 0;">{data.name}</h1>
         <p class="muted" style="max-width:560px;">{data.summary}</p>
-        <a class="btn" href={ctaHref}>{data.cta?.label ?? "Book Your Cybersecurity Audit"}</a>
+        <a class="btn" href={ctaHref}>{data.cta?.label ?? "Book Your Cybersecurity Review"}</a>
       </div>
       {data.heroImage && <img src={withBase(data.heroImage)} alt="" />}
     </div>
