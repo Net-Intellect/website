@@ -1,5 +1,6 @@
 ---
 import { withBase } from "../lib/url";
+import { REVIEW_FORM_URL } from "../lib/offers";
 ---
 <header class="nav">
   <div class="container nav-inner">
@@ -19,7 +20,7 @@ import { withBase } from "../lib/url";
       <a href={withBase("/contact")}>Contact</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn" href={withBase("/contact#audit")}>Book Your Cybersecurity Review</a>
+      <a class="btn" href={REVIEW_FORM_URL}>Book Your Cybersecurity Review</a>
     </div>
   </div>
 </header>

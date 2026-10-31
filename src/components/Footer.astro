@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { withBase } from "../lib/url";
+import { REVIEW_FORM_URL } from "../lib/offers";
 const year = new Date().getFullYear();
 const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
 ---
@@ -42,7 +43,7 @@ const services = (await getCollection("services")).sort((a, b) => a.data.order -
       <ul>
         <li><a href={withBase("/contact")}>General Enquiry</a></li>
         <li><a href={withBase("/contact#quote")}>Request a Quote</a></li>
-        <li><a href={withBase("/contact#audit")}>Book a Cybersecurity Review</a></li>
+        <li><a href={REVIEW_FORM_URL}>Book a Cybersecurity Review</a></li>
       </ul>
     </div>
   </div>

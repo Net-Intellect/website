@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTASection from "../../components/CTASection.astro";
 import { withBase } from "../../lib/url";
+import { REVIEW_FORM_URL } from "../../lib/offers";
 
 export async function getStaticPaths() {
   const services = await getCollection("services");
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
 const { service } = Astro.props;
 const { data } = service;
 const { Content } = await render(service);
-const ctaHref = data.cta ? (data.cta.href.startsWith("/") ? withBase(data.cta.href) : data.cta.href) : withBase("/contact#audit");
+const ctaHref = data.cta ? (data.cta.href.startsWith("/") ? withBase(data.cta.href) : data.cta.href) : REVIEW_FORM_URL;
 ---
 <BaseLayout title={data.name} description={data.summary}>
   <nav class="container" style="padding:14px 24px;font-size:13px;color:var(--color-text-muted);">

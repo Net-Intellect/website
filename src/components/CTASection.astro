@@ -1,5 +1,6 @@
 ---
 import { withBase } from "../lib/url";
+import { REVIEW_FORM_URL } from "../lib/offers";
 interface Props {
   headline?: string;
   body?: string;
@@ -10,7 +11,7 @@ const {
   headline = "Find Out Where You're Exposed — Before Someone Else Does",
   body = "Our free Cybersecurity Review checks for staff passwords exposed online, how well your email and Microsoft 365 are protected, and what your systems show to the internet. Nothing is installed on your computers. You get a plain-English report with clear priorities, and there's no obligation.",
   buttonText = "Book Your Cybersecurity Review",
-  href = "/contact#audit",
+  href = REVIEW_FORM_URL,
 } = Astro.props;
 const link = href.startsWith("/") ? withBase(href) : href;
 ---
