@@ -5,7 +5,10 @@
 // form in a new tab.
 ---
 <dialog class="form-popup" aria-label="Form">
-  <button type="button" class="form-popup-close" aria-label="Close">×</button>
+  <!-- Close sits in its own strip so it never covers the form's own menu button. -->
+  <div class="form-popup-bar">
+    <button type="button" class="form-popup-close" aria-label="Close">×</button>
+  </div>
   <iframe title="Form" loading="lazy"></iframe>
 </dialog>
 
@@ -15,12 +18,14 @@
     padding: 0; border: 0; border-radius: var(--radius); overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
   }
+  .form-popup[open] { display: flex; flex-direction: column; }
   .form-popup::backdrop { background: rgba(44, 57, 62, .7); }
-  .form-popup iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .form-popup-bar { display: flex; justify-content: flex-end; padding: 6px 8px; background: var(--color-charcoal); }
+  .form-popup iframe { flex: 1; width: 100%; border: 0; display: block; }
   .form-popup-close {
-    position: absolute; top: 8px; right: 10px; width: 40px; height: 40px;
-    border: 0; border-radius: 50%; background: var(--color-charcoal); color: #fff;
-    font-size: 26px; line-height: 1; cursor: pointer;
+    width: 36px; height: 36px; border: 0; border-radius: 50%;
+    background: rgba(255, 255, 255, .12); color: #fff;
+    font-size: 24px; line-height: 1; cursor: pointer;
   }
   .form-popup-close:hover, .form-popup-close:focus-visible { background: var(--color-accent); }
 </style>
