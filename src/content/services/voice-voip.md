@@ -106,6 +106,7 @@ offerings:
           - 5G where available
         bestFor: Field staff, vehicles and backup connectivity
       - name: Data Pooling
+        platform: Across your mobile and data plans
         summary: Share one pool of data across your team's mobile and data plans, so heavy users draw on what light users don't need.
         features:
           - One shared data allowance across plans
