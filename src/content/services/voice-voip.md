@@ -1,7 +1,7 @@
 ---
 name: Voice Services & VOIP
 order: 7
-summary: Cloud phone systems, Microsoft Teams calling and contact centres that work the way your team actually communicates, in the office, at home or on the road.
+summary: Cloud phone systems, Microsoft Teams calling, contact centres and business mobile plans that work the way your team actually communicates, in the office, at home or on the road.
 whoFor:
   - Small and medium businesses ready to move to a modern phone system
   - Not-for-profits that need a professional phone system on a tight budget
@@ -87,6 +87,37 @@ offerings:
           - Built with compliance requirements in mind
           - Supported locally, alongside the rest of your IT
         bestFor: Larger organisations with an established contact centre platform
+  - group: Mobile Plans
+    intro: SIM-only mobile and data plans on the Telstra Wholesale network, with 5G where available. Bring your own phones and keep your numbers, all looked after by the same local team as your phone system and IT.
+    items:
+      - name: SIM-Only Mobile Plans
+        platform: Telstra Wholesale network
+        summary: Business mobile plans with calls, text and data for your staff's existing phones, with 5G where available.
+        features:
+          - Keep your existing mobile numbers
+          - Physical SIM or eSIM
+          - 5G where available
+        bestFor: Staff who need a reliable business mobile
+      - name: Data-Only Plans
+        platform: Telstra Wholesale network
+        summary: Mobile data for tablets, laptops and mobile broadband devices, so teams stay connected away from the office.
+        features:
+          - For tablets, laptops and mobile routers
+          - 5G where available
+        bestFor: Field staff, vehicles and backup connectivity
+      - name: Data Pooling
+        summary: Share one pool of data across your team's mobile and data plans, so heavy users draw on what light users don't need.
+        features:
+          - One shared data allowance across plans
+          - Fewer surprise excess charges
+        bestFor: Teams with mixed data use
+      - name: eSIM Companion Plan
+        platform: Apple and Samsung smartwatches
+        summary: Extend a staff member's mobile number to a compatible Apple or Samsung cellular smartwatch, so they can take calls and messages without their phone.
+        features:
+          - The watch shares the phone's number
+          - eSIM only, for domestic use
+        bestFor: Staff who are on the move and away from their phone
   - group: Add-Ons
     intro: Phones and extras that plug into any of the phone systems above.
     items:
