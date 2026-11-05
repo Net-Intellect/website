@@ -17,7 +17,7 @@ const services = (await getCollection("services"))
   .filter((s) => featuredServiceIds.includes(s.id))
   .sort((a, b) => a.data.order - b.data.order);
 const testimonials = await getCollection("testimonials");
-const featured = ["AWAHS", "SJE Consulting", "The Man From Snowy River Bush Festival"];
+const featured = ["AWAHS", "SJE Consulting", "Riverina Fire Solutions"];
 const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data.client));
 ---
 <BaseLayout
