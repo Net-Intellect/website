@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { REVIEW_FORM_URL } from "../lib/offers";
+import { CONTACT_FORM_URL, REVIEW_FORM_URL } from "../lib/offers";
 
-// TODO (PRD §6.3): replace with the real Power Automate HTTP-trigger URLs once
-// the flows exist. Each form posts its own `source` value so the flow can tag
-// the lead before writing it into Autotask/BMS.
-const FORM_ENDPOINT = "https://REPLACE-WITH-POWER-AUTOMATE-HTTP-TRIGGER-URL";
+// Both cards open the Microsoft Forms contact form (in the pop-up). Until that
+// form exists, they fall back to a pre-addressed email.
+const mail = (subject: string) => `mailto:info@netintellect.com.au?subject=${encodeURIComponent(subject)}`;
+const enquiryHref = CONTACT_FORM_URL || mail("General enquiry");
+const quoteHref = CONTACT_FORM_URL || mail("Quote request");
 ---
 <BaseLayout
   title="Contact Us"
@@ -25,34 +26,20 @@ const FORM_ENDPOINT = "https://REPLACE-WITH-POWER-AUTOMATE-HTTP-TRIGGER-URL";
     <div class="container grid grid-2">
       <div class="card" id="audit">
         <h2 style="font-size:17px;">General Enquiry</h2>
-        <form method="post" action={FORM_ENDPOINT} data-form="general">
-          <input type="hidden" name="source" value="contact-general" />
-          <label class="field-label" for="g-name">Name</label>
-          <input class="field" id="g-name" name="name" required />
-          <label class="field-label" for="g-email">Email</label>
-          <input class="field" id="g-email" name="email" type="email" required />
-          <label class="field-label" for="g-phone">Phone</label>
-          <input class="field" id="g-phone" name="phone" />
-          <label class="field-label" for="g-message">Message</label>
-          <textarea class="field" id="g-message" name="message" rows="4" required></textarea>
-          <button class="btn" type="submit" style="margin-top:8px;">Send Enquiry</button>
-        </form>
+        <p class="muted" style="font-size:15.5px;">
+          A question about our services, your IT, or how we could help? Send us a message and the
+          right person will get back to you within one business day.
+        </p>
+        <a class="btn" href={enquiryHref}>Send an Enquiry</a>
       </div>
 
       <div class="card" id="quote">
         <h2 style="font-size:17px;">Request a Quote</h2>
-        <form method="post" action={FORM_ENDPOINT} data-form="quote">
-          <input type="hidden" name="source" value="contact-quote" />
-          <label class="field-label" for="q-name">Name</label>
-          <input class="field" id="q-name" name="name" required />
-          <label class="field-label" for="q-company">Company</label>
-          <input class="field" id="q-company" name="company" required />
-          <label class="field-label" for="q-contact">Email / Phone</label>
-          <input class="field" id="q-contact" name="contact" required />
-          <label class="field-label" for="q-need">What do you need?</label>
-          <textarea class="field" id="q-need" name="need" rows="4" required></textarea>
-          <button class="btn" type="submit" style="margin-top:8px;">Request a Quote</button>
-        </form>
+        <p class="muted" style="font-size:15.5px;">
+          Tell us what you need, whether it's managed IT, a new phone system, Microsoft 365 or a
+          project, and we'll come back with a clear, fixed quote.
+        </p>
+        <a class="btn" href={quoteHref}>Request a Quote</a>
       </div>
     </div>
 
@@ -70,15 +57,3 @@ const FORM_ENDPOINT = "https://REPLACE-WITH-POWER-AUTOMATE-HTTP-TRIGGER-URL";
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  .field-label { display: block; font-size: 12.5px; font-weight: 600; margin: 12px 0 4px; }
-  .field {
-    width: 100%;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: 10px 12px;
-    font-family: inherit;
-    font-size: 14px;
-  }
-</style>

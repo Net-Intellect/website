@@ -26,5 +26,3 @@ relatedPage:
 ---
 
 Security isn't a product you buy once. It's the controls, monitoring and response that sit across your devices, email, accounts and backups every day. We manage that for you, aligned to the Australian Government's Essential Eight, and give you a clear picture of where you stand that you can take to your board or auditors.
-
-[Defensible Essential Eight maturity level and any compliance certifications to be confirmed by Andre before launch.]
