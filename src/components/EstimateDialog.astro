@@ -1,0 +1,106 @@
+---
+import { ESTIMATE_FORM_URL } from "../lib/offers";
+
+// Pop-up for every [data-supportnet-estimate] link (EstimateCTA.astro), built to
+// section 4 of the integration instructions. The form loads on first open and
+// stays loaded, so closing by accident doesn't lose answers. At 768px or less,
+// or without JavaScript, the link just opens the form in a new tab.
+// It's separate from FormPopup.astro, which skips these links.
+---
+{ESTIMATE_FORM_URL && (
+  <dialog id="sn-estimate" class="sn-estimate" aria-labelledby="sn-estimate-title" data-form-url={ESTIMATE_FORM_URL}>
+    <div class="sn-estimate__head">
+      <div>
+        <h2 id="sn-estimate-title">SupportNet Security estimate</h2>
+        <p>Takes about 3 minutes. Your estimate is emailed to you.</p>
+      </div>
+      <button type="button" class="sn-estimate__close" aria-label="Close the estimate form">&times;</button>
+    </div>
+    <div class="sn-estimate__body"></div>
+    <p class="sn-estimate__foot">
+      <span class="sn-estimate__prompt">Prefer a full page?</span> <a href={ESTIMATE_FORM_URL} target="_blank" rel="noopener">Open the form in a new tab</a>.
+    </p>
+  </dialog>
+)}
+
+<style is:global>
+  .sn-estimate {
+    width: min(760px, 94vw); height: min(90vh, 900px); padding: 0; border: 0;
+    border-radius: var(--radius); overflow: hidden; display: none; flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+  }
+  .sn-estimate[open] { display: flex; }
+  .sn-estimate::backdrop { background: rgba(44, 57, 62, .7); }
+  .sn-estimate__head {
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+    padding: 14px 20px; background: var(--color-charcoal); color: #fff;
+  }
+  .sn-estimate__head h2 { margin: 0; font-size: 20px; color: #fff; }
+  .sn-estimate__head p { margin: 4px 0 0; font-size: 14.5px; color: #d3dadd; }
+  .sn-estimate__close {
+    flex: none; width: 36px; height: 36px; border: 0; border-radius: 50%;
+    background: rgba(255, 255, 255, .12); color: #fff; font-size: 24px; line-height: 1; cursor: pointer;
+  }
+  .sn-estimate__close:hover, .sn-estimate__close:focus-visible { background: var(--color-accent); outline: 2px solid #fff; }
+  .sn-estimate__body { flex: 1; min-height: 0; position: relative; }
+  .sn-estimate__body iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .sn-estimate__foot { margin: 0; padding: 8px 20px; font-size: 14px; border-top: 1px solid var(--color-border); }
+  @media (max-width: 768px) {
+    .sn-estimate { width: 100vw; height: 100dvh; max-width: none; max-height: none; border-radius: 0; }
+  }
+  body.sn-modal-open { overflow: hidden; }
+</style>
+
+<script>
+  const dlg = document.querySelector<HTMLDialogElement>("#sn-estimate");
+  if (dlg && typeof dlg.showModal === "function") {
+    const body = dlg.querySelector(".sn-estimate__body")!;
+    const prompt = dlg.querySelector<HTMLElement>(".sn-estimate__prompt")!;
+    const closeBtn = dlg.querySelector<HTMLButtonElement>(".sn-estimate__close")!;
+    let lastTrigger: HTMLElement | null = null;
+    let loaded = false;
+
+    // Clicks only, never form content. The site has no analytics tool yet, so
+    // nothing reads this until one is added.
+    const track = (event: string, detail: Record<string, string> = {}) => {
+      const w = window as unknown as { dataLayer?: object[] };
+      (w.dataLayer ??= []).push({ event, ...detail });
+    };
+
+    const open = (trigger: HTMLElement) => {
+      lastTrigger = trigger;
+      if (!loaded) {
+        const frame = document.createElement("iframe");
+        frame.src = `${dlg.dataset.formUrl}&embed=true`;
+        frame.title = "SupportNet Security estimate form";
+        frame.setAttribute("allowfullscreen", "");
+        // Browsers fire "load" even for a blocked form, and a cross-origin frame
+        // can't be inspected, so this always changes rather than waiting on load.
+        setTimeout(() => { prompt.textContent = "Having trouble?"; }, 10000);
+        body.prepend(frame);
+        loaded = true;
+      }
+      dlg.showModal();
+      document.body.classList.add("sn-modal-open");
+      closeBtn.focus();
+    };
+
+    document.addEventListener("click", (event) => {
+      const trigger = (event.target as Element).closest<HTMLElement>("[data-supportnet-estimate]");
+      if (!trigger) return;
+      track("supportnet_estimate_open", { location: trigger.dataset.location ?? location.pathname });
+      if (window.matchMedia("(max-width: 768px)").matches) return; // follow the link to a new tab
+      event.preventDefault();
+      open(trigger);
+    });
+
+    closeBtn.addEventListener("click", () => dlg.close());
+    // Clicking the dimmed area outside the form closes it too.
+    dlg.addEventListener("click", (event) => { if (event.target === dlg) dlg.close(); });
+    dlg.addEventListener("close", () => {
+      document.body.classList.remove("sn-modal-open");
+      track("supportnet_estimate_close");
+      lastTrigger?.focus();
+    });
+  }
+</script>

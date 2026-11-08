@@ -11,6 +11,7 @@ npm-debug.log*
 # env
 .env
 .env.production
+.env.development
 
 # editor/OS
 .DS_Store

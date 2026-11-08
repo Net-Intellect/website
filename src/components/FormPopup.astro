@@ -37,6 +37,8 @@
     'a[href*="forms.office.com"], a[href*="forms.microsoft.com"], a[href*="forms.cloud.microsoft"]',
   );
   for (const link of links) {
+    // The estimate form has its own pop-up (EstimateDialog.astro).
+    if (link.matches("[data-supportnet-estimate]") || link.closest("#sn-estimate")) continue;
     link.target = "_blank";
     link.rel = "noopener";
     link.addEventListener("click", (event) => {

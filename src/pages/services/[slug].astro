@@ -2,8 +2,9 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTASection from "../../components/CTASection.astro";
+import EstimateCTA from "../../components/EstimateCTA.astro";
 import { withBase } from "../../lib/url";
-import { REVIEW_FORM_URL } from "../../lib/offers";
+import { ESTIMATE_FORM_URL, REVIEW_FORM_URL } from "../../lib/offers";
 
 export async function getStaticPaths() {
   const services = await getCollection("services");
@@ -17,6 +18,7 @@ const { service } = Astro.props;
 const { data } = service;
 const { Content } = await render(service);
 const ctaHref = data.cta ? (data.cta.href.startsWith("/") ? withBase(data.cta.href) : data.cta.href) : REVIEW_FORM_URL;
+const showEstimate = ESTIMATE_FORM_URL && service.id === "cybersecurity-compliance";
 ---
 <BaseLayout title={data.name} description={data.summary}>
   <nav class="container" style="padding:14px 24px;font-size:13px;color:var(--color-text-muted);">
@@ -31,6 +33,7 @@ const ctaHref = data.cta ? (data.cta.href.startsWith("/") ? withBase(data.cta.hr
         <h1 style="margin:14px 0;">{data.name}</h1>
         <p class="muted" style="max-width:560px;">{data.summary}</p>
         <a class="btn" href={ctaHref}>{data.cta?.label ?? "Book Your Cybersecurity Review"}</a>
+        {showEstimate && <EstimateCTA label="Get your estimate" location="cybersecurity-top" tone="dark" />}
       </div>
       {data.heroImage && <img src={withBase(data.heroImage)} alt="" />}
     </div>
@@ -117,6 +120,15 @@ const ctaHref = data.cta ? (data.cta.href.startsWith("/") ? withBase(data.cta.hr
             See the {data.relatedPage.title} stack →
           </a>
         </div>
+      </div>
+    </section>
+  )}
+
+  {showEstimate && (
+    <section class="section">
+      <div class="container">
+        <h2 style="font-size:22px;">Get an indicative estimate</h2>
+        <EstimateCTA label="Get your estimate" location="cybersecurity-bottom" />
       </div>
     </section>
   )}

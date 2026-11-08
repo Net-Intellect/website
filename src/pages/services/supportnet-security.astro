@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTASection from "../../components/CTASection.astro";
+import EstimateCTA from "../../components/EstimateCTA.astro";
 import { withBase } from "../../lib/url";
-import { REVIEW_FORM_URL } from "../../lib/offers";
+import { ESTIMATE_FORM_URL, REVIEW_FORM_URL } from "../../lib/offers";
 
 // Copy sourced from the authoritative 2026 collateral:
 // Internal-Ops/Solutions 2026/SupportNet Security Solutions/SupportNet_Security_Catalogue_2026.md
@@ -50,6 +51,7 @@ const badges = ["24-hour Managed Detection & Response", "Security Governance", "
           cannot justify building alone.
         </p>
         <a class="btn" href={REVIEW_FORM_URL}>Book Your Cybersecurity Review</a>
+        <EstimateCTA label="Get your estimate" location="supportnet-security-top" tone="dark" />
       </div>
       <img src={withBase("/images/supportnet-shield.svg")} alt="The SupportNet Security shield" style="max-height:none;" />
     </div>
@@ -161,6 +163,20 @@ const badges = ["24-hour Managed Detection & Response", "Security Governance", "
       </p>
     </div>
   </section>
+
+  {ESTIMATE_FORM_URL && (
+    <section class="section">
+      <div class="container" style="max-width:70ch;">
+        <h2 style="font-size:22px;">What happens next</h2>
+        <ol class="muted">
+          <li>Tell us about your environment (about 3 minutes).</li>
+          <li>Receive your indicative estimate by email, from Sales @ Net Intellect.</li>
+          <li>One of our security specialists contacts you to confirm the details and answer questions.</li>
+        </ol>
+        <EstimateCTA label="Get your estimate" location="supportnet-security-bottom" />
+      </div>
+    </section>
+  )}
 
   <CTASection />
 </BaseLayout>

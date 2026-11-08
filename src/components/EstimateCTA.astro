@@ -1,0 +1,47 @@
+---
+import { withBase } from "../lib/url";
+import { ESTIMATE_FORM_URL } from "../lib/offers";
+
+// The "get an estimate" call to action. Copy and rules come from
+// SupportNet_Website_Estimate_Button_Integration_Instructions.md in the Build
+// Instructions library: always "indicative estimate", never a quote or a price.
+// EstimateDialog.astro handles the click. No link set, nothing rendered.
+interface Props {
+  label: string;
+  location: string;
+  tone?: "dark" | "light";
+}
+const { label, location, tone = "light" } = Astro.props;
+---
+{ESTIMATE_FORM_URL && (
+  <div class:list={["estimate-cta", `estimate-cta-${tone}`]}>
+    <p class="estimate-cta-intro">
+      Find out what SupportNet Security would cost for your organisation. Answer a few questions
+      about your users, computers and email, and we'll email you an indicative monthly estimate in
+      minutes. No obligation.
+    </p>
+    <p class="estimate-cta-action">
+      <a class="btn" href={ESTIMATE_FORM_URL} target="_blank" rel="noopener" data-supportnet-estimate data-location={location}>{label}</a>
+      <span>Prefer to talk? Call <a href="tel:+61260510999">(02) 6051 0999</a></span>
+    </p>
+    <p class="estimate-cta-small">
+      Indicative estimate only. Not an offer or a quote. Final pricing is confirmed after Net
+      Intellect reviews your environment. Prices exclude GST. Organisations with more than 300 users
+      receive a tailored proposal instead of an automatic estimate.{" "}
+      <a href={withBase("/privacy")}>Privacy Policy</a>
+    </p>
+  </div>
+)}
+
+<style>
+  .estimate-cta { margin-top: 24px; max-width: 600px; }
+  .estimate-cta p { margin: 0; }
+  .estimate-cta .estimate-cta-intro { font-size: 16px; margin-bottom: 14px; }
+  .estimate-cta-action { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; font-size: 15.5px; }
+  .estimate-cta .estimate-cta-small { font-size: 13.5px; line-height: 1.5; margin-top: 12px; }
+  .estimate-cta .btn:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+  .estimate-cta-dark, .estimate-cta-dark a:not(.btn) { color: #fff; }
+  .estimate-cta-dark a:not(.btn) { text-decoration: underline; }
+  .estimate-cta-dark .estimate-cta-small { color: #d3dadd; }
+  .estimate-cta-light .estimate-cta-small { color: var(--color-text-muted); }
+</style>

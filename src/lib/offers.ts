@@ -7,3 +7,10 @@ export const REVIEW_FORM_URL =
 // cards link here. Leave empty until the form exists: the buttons then open a
 // pre-addressed email instead, so the page always works.
 export const CONTACT_FORM_URL = "";
+
+// The SupportNet Security estimate form (Microsoft Forms). Its link must not be
+// public until the go-live gate in the Build Instructions library is ticked, so
+// it's kept out of this repo: empty means no estimate buttons or dialog anywhere.
+// Local testing reads it from the git-ignored .env.development. At go-live,
+// replace this with the link itself.
+export const ESTIMATE_FORM_URL: string = import.meta.env.PUBLIC_ESTIMATE_FORM_URL ?? "";
