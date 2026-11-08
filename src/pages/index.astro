@@ -2,10 +2,8 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/CTASection.astro";
-import EstimateCTA from "../components/EstimateCTA.astro";
 import Icon from "../components/Icon.astro";
 import { withBase } from "../lib/url";
-import { REVIEW_FORM_URL } from "../lib/offers";
 
 // Homepage features four core services (Ashley's review, item 7); the rest live on /services.
 const featuredServiceIds = [
@@ -37,10 +35,9 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
           10 to 15+ year client relationships across regional NSW/VIC.
         </p>
         <div style="display:flex;gap:14px;flex-wrap:wrap;">
-          <a class="btn" href={REVIEW_FORM_URL}>Book Your Cybersecurity Review</a>
+          <a class="btn" href={withBase("/services")}>Get Your Service Estimate</a>
           <a class="btn btn-outline" href={withBase("/contact")}>Talk to Our Team</a>
         </div>
-        <EstimateCTA label="Get an instant security estimate" location="home-hero" tone="dark" />
       </div>
       <img class="hero-photo" src={withBase("/images/hero/home-headset-support.jpg")} alt="" width="1600" height="1067" />
     </div>
