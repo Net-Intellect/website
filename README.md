@@ -1,52 +1,50 @@
 # Net Intellect Website
 
-netintellect.com.au, rebuilt as a static [Astro](https://astro.build) site deployed to GitHub Pages —
-replacing the old WordPress site. Full context: the PRD and brief linked from
+netintellect.com.au, rebuilt as a static [Astro](https://astro.build) site, replacing the old
+WordPress site on the same Synergy Wholesale cPanel host. GitHub Pages keeps a noindex preview copy. Full context: the PRD and brief linked from
 `../AGENTS.md` (one level up, in the NIWS workspace — not part of this repo).
 
 ## Stack
 
 - **Framework:** Astro 7 (content collections for services/testimonials/blog)
-- **Hosting:** GitHub Pages, deployed via `.github/workflows/deploy.yml` on every push to `main`
+- **Hosting:** live on the Synergy Wholesale cPanel host (`public_html`), published with `deploy/deploy.py`.
+  Preview on GitHub Pages (`net-intellect.github.io/website`, noindex), rebuilt on every push to `main`
 - **Content editing:** Decap CMS (`public/admin/`) — **not yet wired up**, see the TODO in
   `public/admin/config.yml`; needs an external OAuth provider before Andre can use it
-- **Forms:** post to a Power Automate HTTP-trigger flow, which writes leads into Autotask/BMS —
-  **not yet wired up**, see the TODO in `src/pages/contact.astro`
+- **Forms:** Microsoft Forms, opened in a pop-up (`src/components/FormPopup.astro`). Links live in
+  `src/lib/offers.ts`. The Contact page buttons fall back to email until `CONTACT_FORM_URL` is set
 
 ## Local development
 
 ```
 npm install
-npm run dev       # http://localhost:4321/website/
-npm run build     # outputs to ./dist
+npm run dev       # http://localhost:4321/
+npm run build     # production build (netintellect.com.au) to ./dist
 npm run preview   # serve the production build locally
 ```
 
-Note the `/website` base path in dev — it matches `astro.config.mjs`'s `base`, which mirrors
-where GitHub Pages serves this repo (`net-intellect.github.io/website`) until the custom domain
-cutover. Every internal link uses the `withBase()` helper in `src/lib/url.ts` for this reason —
-use it for any new internal link rather than a bare `href="/..."`.
+The production build serves from the web root. The GitHub Pages preview build
+(`SITE_TARGET=preview`) uses the `/website` base path, so every internal link goes through the
+`withBase()` helper in `src/lib/url.ts`. Use it for any new internal link rather than a bare
+`href="/..."`.
 
 ## Deployment
 
-Push to `main` — GitHub Actions builds and deploys automatically. First-time setup still needed
-in the repo's GitHub settings: **Settings → Pages → Source → GitHub Actions** (not "Deploy from a
-branch").
-
-## At custom-domain cutover (PRD §8)
-
-1. Add `public/CNAME` containing `netintellect.com.au`.
-2. In `astro.config.mjs`: change `site` to `https://netintellect.com.au` and remove `base` entirely.
-3. Point DNS at GitHub Pages (confirm timing with Andre first — real cutover event, not a background deploy).
-4. Put 301 redirects in place from every indexed WordPress URL — GitHub Pages has no native
-   server-side redirects, so this needs a redirects file/edge layer in front of Pages, or a
-   different host if that turns out to be simpler (see the hosting-portability note below).
+- **Live site:** `python deploy/deploy.py live` builds for production, writes `dist/.htaccess`
+  (`deploy/build_htaccess.py`: old-WordPress redirects, security headers, caching), zips `dist/`,
+  uploads it through the cPanel API and unzips it into `public_html`. Then run
+  `python deploy/deploy.py check`. Needs the cPanel API token file (see the script's docstring);
+  never commit it.
+- **Preview:** push to `main`. GitHub Actions builds with `SITE_TARGET=preview` and deploys to
+  GitHub Pages.
+- The one-off WordPress cutover (`retire-wordpress`, `restore-wordpress`) and its checklist are in
+  `../ops/go-live-runbook.md`, outside this repo.
 
 ## Known gaps / TODOs
 
 - **Decap CMS auth** — needs an OAuth provider app deployed (`public/admin/config.yml`).
-- **Power Automate flow** — the two contact forms post to a placeholder URL
-  (`src/pages/contact.astro`) until the real flow exists.
+- **Contact form** — build the Microsoft Form (`../ops/contact-form-copilot-prompt.md`) and set
+  `CONTACT_FORM_URL`.
 - **Real testimonial quotes** — every testimonial and service proof-point quote is a bracketed
   placeholder (`src/content/testimonials/*.md`, `src/content/services/*.md`) pending Andre pulling
   the real published quotes.
@@ -56,7 +54,6 @@ branch").
   falls back to `Segoe UI` for now.
 - **Visual design pass** — this build is structural/functional, matching the wireframes; a real
   visual design pass was explicitly scoped out of the PRD as separate follow-on work.
-- **Sitemap.xml / redirects** — not yet generated.
 
 ## Why Astro, and portability
 

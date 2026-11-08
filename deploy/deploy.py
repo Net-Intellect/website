@@ -9,6 +9,7 @@ line 3 the token. Default path C:/Users/ad/cpanel-token.txt, or set CPANEL_TOKEN
   python deploy/deploy.py live              # upload into public_html (the live site)
   python deploy/deploy.py retire-wordpress  # cutover only: move WordPress out of public_html
   python deploy/deploy.py restore-wordpress # rollback: remove the new site, move WordPress back
+  python deploy/deploy.py check             # smoke-test the live site (pages, redirects, headers)
 
 Uploads add and overwrite files; they don't delete files the new build no longer has.
 """
@@ -132,9 +133,51 @@ def restore_wordpress():
     print(f"WordPress restored to {WEBROOT}; the new site's files are in cPanel's Trash")
 
 
+CHECKS = [
+    # (url, expected status, expected redirect target or None)
+    ("https://netintellect.com.au/", 200, None),
+    ("https://netintellect.com.au/services/", 200, None),
+    ("https://netintellect.com.au/services/voice-voip/", 200, None),
+    ("https://netintellect.com.au/contact/", 200, None),
+    ("https://netintellect.com.au/privacy/", 200, None),
+    ("https://netintellect.com.au/sitemap.xml", 200, None),
+    ("https://netintellect.com.au/no-such-page/", 404, None),
+    ("http://netintellect.com.au/", 301, "https://netintellect.com.au/"),
+    ("https://www.netintellect.com.au/about/", 301, "https://netintellect.com.au/about/"),
+    ("https://ssl.netintellect.com.au/", 301, "https://netintellect.com.au/"),
+    ("https://netintellect.com.au/contact-us/", 301, "https://netintellect.com.au/contact/"),
+    ("https://netintellect.com.au/it-solutions/voice-ip-services/", 301, "https://netintellect.com.au/services/voice-voip/"),
+    ("https://netintellect.com.au/product/rapidssl-certificate/", 301, "https://netintellect.com.au/contact/"),
+    ("https://netintellect.com.au/10-steps-to-prevent-a-data-breach/", 301, "https://netintellect.com.au/blog/"),
+    ("https://netintellect.com.au/wp-login.php", 404, None),
+    ("https://domains.netintellect.com.au/", 200, None),
+]
+
+
+def check():
+    failed = 0
+    for url, status, target in CHECKS:
+        out = subprocess.run(
+            ["curl", "-s", "-o", os.devnull, "-w", "%{http_code} %{redirect_url}", url],
+            capture_output=True, encoding="utf-8",
+        ).stdout.split(" ", 1)
+        code, loc = int(out[0]), (out[1] if len(out) > 1 else "")
+        ok = code == status and (target is None or loc == target)
+        failed += not ok
+        print(f"{'ok  ' if ok else 'FAIL'} {code} {url}{' -> ' + loc if loc else ''}")
+    head = subprocess.run(["curl", "-sI", "https://netintellect.com.au/"], capture_output=True, encoding="utf-8").stdout
+    for h in ("strict-transport-security", "content-security-policy", "x-frame-options"):
+        ok = h in head.lower()
+        failed += not ok
+        print(f"{'ok  ' if ok else 'FAIL'} header {h}")
+    sys.exit(f"{failed} check(s) failed" if failed else "All checks passed")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
-    if cmd == "build":
+    if cmd == "check":
+        check()
+    elif cmd == "build":
         build()
     elif cmd == "stage":
         upload(f"{DEPLOY_DIR}/stage")
