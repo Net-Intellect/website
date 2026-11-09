@@ -7,9 +7,13 @@ import { withBase } from "../../lib/url";
 
 const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
 
-// The tile name can differ from the service's own name. SupportNet Security has
-// its own page rather than a collection entry, and sits right after Managed IT.
-const tileNames: Record<string, string> = { "managed-it-support": "SupportNet Managed IT" };
+// The tile name can differ from the service's own name. The SupportNet tiles lead:
+// AI, Managed IT, then SupportNet Security, which has its own page rather than a
+// collection entry.
+const tileNames: Record<string, string> = {
+  "ai-implementation-governance": "SupportNet AI",
+  "managed-it-support": "SupportNet Managed IT",
+};
 const tiles = services.map((service) => ({
   id: service.id,
   name: tileNames[service.id] ?? service.data.name,
@@ -20,6 +24,7 @@ tiles.splice(tiles.findIndex((t) => t.id === "managed-it-support") + 1, 0, {
   name: "SupportNet Security",
   summary: "A coordinated security platform plus governance and response, built to work alongside your internal IT team.",
 });
+tiles.unshift(...tiles.splice(tiles.findIndex((t) => t.id === "ai-implementation-governance"), 1));
 ---
 <BaseLayout
   title="Services"
