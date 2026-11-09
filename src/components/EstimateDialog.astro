@@ -74,9 +74,13 @@ import { ESTIMATE_FORM_URL } from "../lib/offers";
         frame.src = `${dlg.dataset.formUrl}&embed=true`;
         frame.title = "SupportNet Security estimate form";
         frame.setAttribute("allowfullscreen", "");
-        // Browsers fire "load" even for a blocked form, and a cross-origin frame
-        // can't be inspected, so this always changes rather than waiting on load.
-        setTimeout(() => { prompt.textContent = "Having trouble?"; }, 10000);
+        // As the spec says: only if the frame hasn't reported loaded by 10 seconds.
+        // Browsers can report a blocked form as loaded, but the footer link is always there.
+        const timer = setTimeout(() => { prompt.textContent = "Having trouble?"; }, 10000);
+        frame.addEventListener("load", () => {
+          clearTimeout(timer);
+          prompt.textContent = "Prefer a full page?";
+        });
         body.prepend(frame);
         loaded = true;
       }

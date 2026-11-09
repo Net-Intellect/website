@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/CTASection.astro";
+import EstimateCTA from "../components/EstimateCTA.astro";
+import { ESTIMATE_FORM_URL } from "../lib/offers";
 import Icon from "../components/Icon.astro";
 import { withBase } from "../lib/url";
 
@@ -34,8 +36,10 @@ const featuredTestimonials = testimonials.filter((t) => featured.includes(t.data
           Responsive IT support, Microsoft 365/Azure, cybersecurity and AI governance — backed by
           10 to 15+ year client relationships across regional NSW/VIC.
         </p>
-        <div style="display:flex;gap:14px;flex-wrap:wrap;">
-          <a class="btn" href={withBase("/services")}>Explore Our Services</a>
+        {/* Explore Our Services until the estimate form is switched on, then the estimate. */}
+        <EstimateCTA label="Get an instant security estimate" location="home-hero" tone="dark" />
+        <div style={`display:flex;gap:14px;flex-wrap:wrap;${ESTIMATE_FORM_URL ? "margin-top:20px;" : ""}`}>
+          {!ESTIMATE_FORM_URL && <a class="btn" href={withBase("/services")}>Explore Our Services</a>}
           <a class="btn btn-outline" href={withBase("/contact")}>Talk to Our Team</a>
         </div>
       </div>
