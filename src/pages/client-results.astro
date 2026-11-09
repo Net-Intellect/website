@@ -23,7 +23,7 @@ const testimonials = await getCollection("testimonials");
   </section>
 
   <section class="section section-sunken">
-    <div class="container grid grid-2">
+    <div class="container grid grid-3 results-grid">
       {testimonials.map((t) => (
         <article class="card testimonial" id={t.id}>
           <div class="testimonial-top">
@@ -53,6 +53,10 @@ const testimonials = await getCollection("testimonials");
 
 <style>
   .results-tagline { font-size: clamp(20px, 2.4vw, 26px); font-weight: 700; color: #fff; margin: 0 0 10px; }
+  /* Three columns leave no room for the tag and logo side by side on tablets. */
+  @media (min-width: 801px) and (max-width: 1100px) {
+    .results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
   .testimonial { display: flex; flex-direction: column; padding: 28px; scroll-margin-top: 96px; }
   .testimonial:target { border-color: var(--color-accent); box-shadow: 0 0 0 2px var(--color-accent); }
   .testimonial-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; }
@@ -98,6 +102,6 @@ const testimonials = await getCollection("testimonials");
     });
   }
   // Arriving from a homepage link to one client opens that client's full quote.
-  const target = location.hash && document.getElementById(location.hash.slice(1));
+  const target = location.hash ? document.getElementById(location.hash.slice(1)) : null;
   target?.querySelector<HTMLButtonElement>(".read-more:not([hidden])")?.click();
 </script>
