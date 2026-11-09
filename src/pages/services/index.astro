@@ -6,6 +6,20 @@ import Icon from "../../components/Icon.astro";
 import { withBase } from "../../lib/url";
 
 const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
+
+// The tile name can differ from the service's own name. SupportNet Security has
+// its own page rather than a collection entry, and sits right after Managed IT.
+const tileNames: Record<string, string> = { "managed-it-support": "SupportNet Managed IT" };
+const tiles = services.map((service) => ({
+  id: service.id,
+  name: tileNames[service.id] ?? service.data.name,
+  summary: service.data.summary,
+}));
+tiles.splice(tiles.findIndex((t) => t.id === "managed-it-support") + 1, 0, {
+  id: "supportnet-security",
+  name: "SupportNet Security",
+  summary: "A coordinated security platform plus governance and response, built to work alongside your internal IT team.",
+});
 ---
 <BaseLayout
   title="Services"
@@ -23,18 +37,13 @@ const services = (await getCollection("services")).sort((a, b) => a.data.order -
   <section class="section section-sunken page-grid">
     <div class="container">
       <div class="grid grid-3">
-        {services.map((service) => (
-          <a class="card" href={withBase(`/services/${service.id}`)} style="text-decoration:none;">
-            <Icon name={service.id} />
-            <h3 style="font-size:17px;">{service.data.name}</h3>
-            <p class="muted" style="font-size:15.5px;margin:0;">{service.data.summary}</p>
+        {tiles.map((tile) => (
+          <a class="card" href={withBase(`/services/${tile.id}`)} style="text-decoration:none;">
+            <Icon name={tile.id} />
+            <h3 style="font-size:17px;">{tile.name}</h3>
+            <p class="muted" style="font-size:15.5px;margin:0;">{tile.summary}</p>
           </a>
         ))}
-        <a class="card" href={withBase("/services/supportnet-security")} style="text-decoration:none;">
-          <Icon name="supportnet-security" />
-          <h3 style="font-size:17px;">SupportNet Security</h3>
-          <p class="muted" style="font-size:15.5px;margin:0;">A coordinated security platform plus governance and response, built to work alongside your internal IT team.</p>
-        </a>
       </div>
     </div>
   </section>
