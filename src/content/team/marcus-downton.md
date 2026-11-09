@@ -1,5 +1,5 @@
 ---
-name: "Marcus Dowton"
+name: "Marcus Downton"
 role: "Remote Engineer"
 order: 10
 ---

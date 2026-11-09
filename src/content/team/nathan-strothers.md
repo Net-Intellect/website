@@ -1,5 +1,5 @@
 ---
-name: "Nathan Struthers"
+name: "Nathan Strothers"
 role: "Account Manager"
 order: 8
 ---
