@@ -5,8 +5,6 @@ import CTASection from "../components/CTASection.astro";
 import { withBase } from "../lib/url";
 
 const team = (await getCollection("team")).sort((a, b) => a.data.order - b.data.order);
-const initials = (name: string) =>
-  name.replace(/[\[\]]/g, "").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
 ---
 <BaseLayout
   title="Our Team"
@@ -24,17 +22,29 @@ const initials = (name: string) =>
   </section>
 
   <section class="section">
-    <div class="container grid grid-3">
+    <div class="container grid team-grid">
       {team.map((m) => (
         <div class="card member">
           {m.data.photo ? (
             <img class="member-photo" src={withBase("/" + m.data.photo)} alt={m.data.name} />
           ) : (
-            <div class="member-photo member-initials" aria-hidden="true">{initials(m.data.name)}</div>
+            <div class="member-photo member-placeholder" aria-hidden="true">
+              {/* A person on a monitor, until the real photo arrives. */}
+              <svg viewBox="0 0 200 200" fill="none">
+                <rect x="24" y="36" width="152" height="108" rx="9" fill="var(--color-charcoal)" />
+                <rect x="33" y="45" width="134" height="90" rx="3" fill="#e6f5fb" />
+                <circle cx="100" cy="76" r="17" fill="var(--color-accent)" />
+                <path d="M68 135c0-22 14-34 32-34s32 12 32 34z" fill="var(--color-accent)" />
+                <circle cx="41" cy="53" r="2.5" fill="var(--color-accent)" />
+                <circle cx="49" cy="53" r="2.5" fill="var(--color-accent)" opacity=".5" />
+                <path d="M88 144h24l4 20H84z" fill="var(--color-charcoal)" />
+                <rect x="70" y="164" width="60" height="7" rx="3.5" fill="var(--color-charcoal)" />
+              </svg>
+            </div>
           )}
           <div style="font-weight:700;font-size:17px;margin-top:14px;">{m.data.name}</div>
           <div style="font-size:14px;font-weight:700;color:var(--color-accent-ink);margin-bottom:8px;">{m.data.role}</div>
-          <p class="muted" style="font-size:15.5px;">{m.data.bio}</p>
+          {m.data.bio && <p class="muted" style="font-size:15.5px;">{m.data.bio}</p>}
         </div>
       ))}
     </div>
@@ -45,9 +55,10 @@ const initials = (name: string) =>
 
 <style>
   .member-photo { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px; display: block; }
-  .member-initials {
-    display: flex; align-items: center; justify-content: center;
-    background: var(--color-bg-sunken); color: var(--color-text-muted);
-    font-size: 40px; font-weight: 700;
-  }
+  .member-placeholder { background: var(--color-bg-sunken); }
+  .member-placeholder svg { width: 100%; height: 100%; display: block; }
+  /* Ten people: two even rows of five on wide screens. */
+  .team-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  @media (max-width: 1000px) { .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 800px) { .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 </style>

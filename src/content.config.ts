@@ -80,8 +80,8 @@ const team = defineCollection({
     name: z.string(),
     role: z.string(),
     order: z.number(),
-    bio: z.string(),
-    // Path under public/, e.g. "images/team/jane-smith.jpg". Initials show when omitted.
+    bio: z.string().optional(),
+    // Path under public/, e.g. "images/team/jane-smith.jpg". A placeholder picture shows when omitted.
     photo: z.string().optional(),
   }),
 });
