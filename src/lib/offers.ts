@@ -8,9 +8,12 @@ export const REVIEW_FORM_URL =
 // pre-addressed email instead, so the page always works.
 export const CONTACT_FORM_URL = "";
 
-// The SupportNet Security estimate form (Microsoft Forms). Its link must not be
-// public until the go-live gate in the Build Instructions library is ticked, so
-// it's kept out of this repo: empty means no estimate buttons or dialog anywhere.
-// Local testing reads it from the git-ignored .env.development. At go-live,
-// replace this with the link itself.
-export const ESTIMATE_FORM_URL: string = import.meta.env.PUBLIC_ESTIMATE_FORM_URL ?? "";
+// The SupportNet Security estimate form (Microsoft Forms). Switched on 2026-11-10
+// on André's instruction, ahead of the Build Instructions go-live gate (he chose
+// to override it). Empty would mean no estimate buttons or dialog anywhere.
+export const ESTIMATE_FORM_URL: string = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=yLd1AWdk70iqiXi1pr6Ohco4zGik0YRFszTYhKuzfsZUNFBUWlpMUFlEM01EUVQ4WjQyVEtGTjE2SSQlQCN0PWcu";
+
+// Where the estimate buttons show. The SupportNet Security page always has them
+// while ESTIMATE_FORM_URL is set. André wants that page only for now (2026-11-10):
+// set this to true to add them to the homepage hero and Cybersecurity & Compliance.
+export const ESTIMATE_ON_OTHER_PAGES = false;
