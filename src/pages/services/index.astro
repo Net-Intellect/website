@@ -7,16 +7,11 @@ import { withBase } from "../../lib/url";
 
 const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
 
-// The tile name can differ from the service's own name. The SupportNet tiles lead:
-// Managed IT, SupportNet Security (which has its own page rather than a collection
-// entry), then AI.
-const tileNames: Record<string, string> = {
-  "ai-implementation-governance": "SupportNet AI",
-  "managed-it-support": "SupportNet Managed IT",
-};
+// The SupportNet tiles lead: SupportNet Managed IT, SupportNet Security (which has
+// its own page rather than a collection entry), then SupportNet AI.
 const tiles = services.map((service) => ({
   id: service.id,
-  name: tileNames[service.id] ?? service.data.name,
+  name: service.data.name,
   summary: service.data.summary,
 }));
 tiles.splice(tiles.findIndex((t) => t.id === "managed-it-support") + 1, 0, {
@@ -28,13 +23,13 @@ tiles.splice(2, 0, ...tiles.splice(tiles.findIndex((t) => t.id === "ai-implement
 ---
 <BaseLayout
   title="Services"
-  description="Managed IT support, cybersecurity, cloud, AI implementation, networking, disaster recovery, voice and broadband services for regional NSW/VIC businesses."
+  description="SupportNet Managed IT support, cybersecurity, cloud, SupportNet AI, networking, disaster recovery, voice and broadband services for regional NSW/VIC businesses."
 >
   <section class="section page-intro">
     <div class="container">
       <h1>Services</h1>
       <p class="muted lead">
-        From day-to-day support to cybersecurity, cloud and AI, everything your business needs
+        From day-to-day support to cybersecurity, cloud and SupportNet AI, everything your business needs
         from IT, delivered by one local team that knows your environment.
       </p>
     </div>

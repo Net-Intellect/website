@@ -5,6 +5,7 @@ const services = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/services" }),
   schema: z.object({
     name: z.string(),
+    seoTitle: z.string().optional(), // browser tab title, if different from name
     order: z.number(),
     summary: z.string(),
     whoFor: z.array(z.string()),

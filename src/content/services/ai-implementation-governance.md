@@ -1,5 +1,6 @@
 ---
-name: AI Implementation & Governance
+name: SupportNet AI
+seoTitle: "SupportNet AI: Implementation & Governance"
 order: 4
 summary: Safe, managed adoption of AI as an extension of your existing IT and security relationship — not a hype pitch.
 whoFor:

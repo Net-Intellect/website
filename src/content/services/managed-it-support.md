@@ -1,5 +1,7 @@
 ---
-name: Managed IT Support
+name: SupportNet Managed IT
+# Browser tab title: keeps the phrase people search for.
+seoTitle: SupportNet Managed IT Support
 order: 1
 summary: Responsive, proactive IT support so your team isn't fighting technology to get the day's work done.
 whoFor:

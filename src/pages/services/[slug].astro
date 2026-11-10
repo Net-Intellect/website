@@ -20,7 +20,7 @@ const { Content } = await render(service);
 const ctaHref = data.cta ? (data.cta.href.startsWith("/") ? withBase(data.cta.href) : data.cta.href) : REVIEW_FORM_URL;
 const showEstimate = ESTIMATE_FORM_URL && ESTIMATE_ON_OTHER_PAGES && service.id === "cybersecurity-compliance";
 ---
-<BaseLayout title={data.name} description={data.summary}>
+<BaseLayout title={data.seoTitle ?? data.name} description={data.summary}>
   <nav class="container" style="padding:14px 24px;font-size:13px;color:var(--color-text-muted);">
     <a href={withBase("/")}>Home</a> / <a href={withBase("/services")}>Services</a> /
     <strong style="color:var(--color-charcoal);">{data.name}</strong>
