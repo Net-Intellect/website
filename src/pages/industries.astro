@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/CTASection.astro";
 import Icon from "../components/Icon.astro";
+import { withBase } from "../lib/url";
+import { visibleIndustries } from "../lib/industries";
 
 const industries = [
   { name: "Aged Care", icon: "aged-care", note: "24/7 operations where downtime affects resident care." },
@@ -33,8 +35,27 @@ const industries = [
             <p class="muted" style="font-size:16px;margin:0;">{i.note}</p>
           </div>
         ))}
+        {/* Industries with their own page (drafts appear on the preview only). */}
+        {visibleIndustries.map((i) => (
+          <a class="card industry-link" href={withBase(`/industries/${i.slug}`)}>
+            <Icon name={i.icon} />
+            <h3 style="font-size:20px;">{i.name}{i.draft && <span class="draft-tag">Draft</span>}</h3>
+            <p class="muted" style="font-size:16px;margin:0 0 10px;">{i.card}</p>
+            <span class="industry-more">Learn more →</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
   <CTASection />
 </BaseLayout>
+
+<style>
+  .industry-link { display: block; text-decoration: none; color: inherit; }
+  .industry-more { font-weight: 700; font-size: 15.5px; color: var(--color-accent); }
+  .industry-link:hover .industry-more { color: var(--color-accent-ink); }
+  .draft-tag {
+    margin-left: 10px; vertical-align: middle; font-size: 11px; font-weight: 700; letter-spacing: .04em;
+    text-transform: uppercase; background: #fff4d6; color: #5a4300; padding: 2px 7px; border-radius: 3px;
+  }
+</style>

@@ -99,6 +99,18 @@ const key = aliases[name] ?? name;
       <path d="M10 20v-5h4v5" />
       <path d="M6.8 12h2M15.2 12h2" />
     </>)}
+    {key === "factory" && (<>
+      <path d="M3 20.5V10l5 3V10l5 3V10l5 3V4.5h3v16z" />
+      <path d="M2 20.5h20" />
+      <path d="M6.5 17h2M11.5 17h2M16.5 17h2" />
+    </>)}
+    {key === "car" && (<>
+      <path d="M4 16.5V12l2-5h12l2 5v4.5z" />
+      <path d="M4 12h16" />
+      <circle cx="7.5" cy="16.5" r="1.8" />
+      <circle cx="16.5" cy="16.5" r="1.8" />
+      <path d="M4 16.5v2.5h2M20 16.5v2.5h-2" />
+    </>)}
     {key === "history" && (<>
       <circle cx="12" cy="12" r="8.5" />
       <path d="M12 7.5V12l3 2" />

@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
+import { industryPages } from "../lib/industries";
 
 // Hand-rolled sitemap (no extra dependency). Static pages are listed here;
 // services and blog posts come from their collections.
@@ -13,6 +14,7 @@ export const GET: APIRoute = async () => {
     ...staticPaths,
     ...services.map((s) => `/services/${s.id}`),
     ...posts.map((p) => `/blog/${p.id}`),
+    ...industryPages.filter((i) => !i.draft).map((i) => `/industries/${i.slug}`),
   ];
   const urls = paths
     .map((p) => `  <url><loc>https://netintellect.com.au${p === "/" ? "/" : `${p}/`}</loc></url>`)
