@@ -1,6 +1,6 @@
 ---
 client: Stanton & Killeen Wines
-segment: General Business
+segment: Winery
 attribution: Natasha Killeen, General Manager, Stanton & Killeen Wines
 logo: /images/clients/stanton-killeen-wines.png
 tenure: Client since 2023

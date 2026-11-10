@@ -1,6 +1,6 @@
 ---
 client: Coons Dairy
-segment: General Business
+segment: Wholesale & Distribution
 attribution: Linda Coon, Director, Coons Dairy
 logo: /images/clients/coons-dairy.png
 tenure: Client for 3+ years

@@ -1,6 +1,6 @@
 ---
 client: Larsen Engineering
-segment: General Business
+segment: Manufacturing
 attribution: Benjamin Larsen, Managing Director, Larsen Engineering Pty. Ltd.
 logo: /images/clients/larsen-engineering.png
 tenure: Client for over 20 years
