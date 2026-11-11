@@ -55,7 +55,7 @@ const testimonials = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/testimonials" }),
   schema: z.object({
     client: z.string(),
-    segment: z.enum(["Aged Care", "Community Health", "NDIS", "Manufacturing", "Wholesale & Distribution", "Winery", "General Business"]),
+    segment: z.enum(["Aged Care", "Community Health", "NDIS", "Manufacturing", "Wholesale & Distribution", "Winery", "Not-for-Profit", "General Business"]),
     attribution: z.string().optional(),
     // Path under public/, e.g. "images/clients/acme.png" — the client's own
     // logo, pulled from their current public website. Omit if none found.

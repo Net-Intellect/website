@@ -1,6 +1,6 @@
 ---
 client: The Man From Snowy River Bush Festival
-segment: General Business
+segment: Not-for-Profit
 attribution: Bernie Svoboda, Finance Manager, The Man From Snowy River Bush Festival
 logo: /images/clients/man-from-snowy-river-bush-festival.png
 tenure: Client since 2025
