@@ -1,6 +1,6 @@
 ---
 client: Riverina Fire Solutions
-segment: General Business
+segment: Fire Protection
 attribution: Penny Hanley, Accounts Manager, Riverina Fire Solutions
 logo: /images/clients/riverina-fire-solutions.png
 tenure: Client since 2023
