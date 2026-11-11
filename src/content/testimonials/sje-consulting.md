@@ -1,6 +1,6 @@
 ---
 client: SJE Consulting
-segment: General Business
+segment: Consultants
 attribution: Bernadette Kennedy, Finance Manager, SJE Consulting
 logo: /images/clients/sje-consulting.png
 tenure: 10+ years

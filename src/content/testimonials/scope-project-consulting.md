@@ -1,6 +1,6 @@
 ---
 client: Scope Project Consulting
-segment: General Business
+segment: Consultants
 attribution: Ben Fryer, Managing Director, Scope Project Consulting
 logo: /images/clients/scope-project-consulting.png
 tenure: Client since 2023
